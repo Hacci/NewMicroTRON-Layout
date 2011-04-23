@@ -11,5 +11,6 @@ includeフォルダー内に複数の設定データに分けて管理し､
 
 直下のprivate.xmlが大元で､そこに書いてあるファイルがinclude内にあるファイルで展開され､
 outputフォルダーにあるprivate.xmlに書き込まれる。
-これを利用して､~/Library/Application Support/KeyRemap4MacBook/private.xml
-にコピーするか､シンボリックリンクにしておけば､楽ですね。
+このシンボリックリンクを､~/Library/Application Support/KeyRemap4MacBook/private.xml
+に差し替えておけば､楽ですね。
+Gitではシンボリックリンクはpushできないみたいなので。

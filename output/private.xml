@@ -12,20 +12,121 @@
 <!-- 11.1.10 ModifierHoldingKeyToKey(ver6.8.0で廃止)をHoldingKeyToKeyに修正して、使いやすくなった。 -->
 <!-- 2011.01.10(月)遅延が起きるので、自ビルドまでSandSで, KeyCode::VK_JIS_TEMPORARY_RESTOREを一時的に外す｡ -->
 <!-- 2011.01.24(月) vk.ignore_jis_temporary_restoreを追加し、VK_JIS_TEMPORARY_RESTORE指定を無視を含めて、その指定なしでの一連の改造の有無を切り替えれるようにする。 -->
+<!-- 2011.04.12(火) AINUを追加。 -->
+<!-- 2011.04.23(土) -->
 <item>
   <name>general</name>
   <list>
-        <item>
-          <name>Ignore VK_JIS_TEMPORARY_RESTORE</name><!-- 2011.01.24(月) -->
-          <appendix>連打遅延対策: VK_JIS_TEMPORARY_RESTORE指定を無視</appendix>
-          <identifier>vk.ignore_jis_temporary_restore</identifier>
-        </item>
-
 
         <item>
-          <name>Use short-cut of IM change</name><!-- 10.1.24 test Haci システムのショートカット(初期値Command+Option+Space)を利用してモード一時変更をする場合 -->
-          <identifier>remap.use_shortcut_IM</identifier><!-- 11.1.6 これは何だったかな? -->
+<!-- Space to Tab -->
+          <name> (1)Smart[command+Space] </name><!-- 2011年04月16日(土)pm00:28 test -->
+          <appendix>テスト用: 従来のCommand+Spaceの改良版</appendix>
+          <appendix>[sft]のみ+ひらがな　to REPLACE_MINUS_SKIP_PRE</appendix>
+          <appendix>[ひら]のみ　　　　　to CUR_PRE</appendix>
+          <identifier>remap.severe_test205</identifier>
+          <autogen>--KeyToKey-- KeyCode::JIS_KANA , VK_SHIFT | ModifierFlag::NONE, KeyCode::VK_JIS_COMMAND_SPACE_REPLACE_MINUS_SKIP_PRE, Option::NOREPEAT</autogen>
+          <autogen>--KeyToKey-- KeyCode::JIS_KANA,  ModifierFlag::NONE ,           KeyCode::VK_JIS_COMMAND_SPACE_SEESAW_CUR_PRE, Option::NOREPEAT</autogen>
         </item>
+
+        <item>
+<!-- Space to Tab -->
+          <name> Smart[command+Space] </name><!-- 2011年04月16日(土)pm00:04 test -->
+          <appendix>テスト用: 従来のCommand+Spaceの改良版</appendix>
+          <appendix>[sft]のみ+ひらがな　to REPLACE_PLUS_SKIP_PRE</appendix>
+          <appendix>[ひら]のみ　　　　　to CUR_PRE</appendix>
+          <identifier>remap.severe_test204</identifier>
+          <autogen>--KeyToKey-- KeyCode::JIS_KANA , VK_SHIFT | ModifierFlag::NONE, KeyCode::VK_JIS_COMMAND_SPACE_REPLACE_PLUS_SKIP_PRE, Option::NOREPEAT</autogen>
+          <autogen>--KeyToKey-- KeyCode::JIS_KANA,  ModifierFlag::NONE ,           KeyCode::VK_JIS_COMMAND_SPACE_SEESAW_CUR_PRE, Option::NOREPEAT</autogen>
+        </item>
+
+        <item>
+<!-- Space to Tab -->
+          <name> Smart[command+Space] </name><!-- 2011.04.16(土)pm00:31 test -->
+          <appendix>テスト用: 従来のCommand+Space相当の逆順遷移</appendix>
+          <appendix>[sft]のみ+ひらがな　to REPLACE_MINUS_SKIP_NONE</appendix>
+          <appendix>[ひら]のみ　　　　　to CUR_PRE</appendix>
+          <identifier>remap.severe_test203</identifier>
+          <autogen>--KeyToKey-- KeyCode::JIS_KANA , VK_SHIFT | ModifierFlag::NONE, KeyCode::VK_JIS_COMMAND_SPACE_REPLACE_MINUS_SKIP_NONE, Option::NOREPEAT</autogen>
+          <autogen>--KeyToKey-- KeyCode::JIS_KANA,  ModifierFlag::NONE ,           KeyCode::VK_JIS_COMMAND_SPACE_SEESAW_CUR_PRE, Option::NOREPEAT</autogen>
+        </item>
+
+        <item>
+<!-- Space to Tab -->
+          <name> Smart[command+Space] </name><!-- 2011.04.16(土)pm00:04test -->
+          <appendix>テスト用: 従来のCommand+Space相当</appendix>
+          <appendix>[sft]のみ+ひらがな　to REPLACE_PLUS_SKIP_NONE</appendix>
+          <appendix>[ひら]のみ　　　　　to CUR_PRE</appendix>
+          <identifier>remap.severe_test202</identifier>
+          <autogen>--KeyToKey-- KeyCode::JIS_KANA , VK_SHIFT | ModifierFlag::NONE, KeyCode::VK_JIS_COMMAND_SPACE_REPLACE_PLUS_SKIP_NONE, Option::NOREPEAT</autogen>
+          <autogen>--KeyToKey-- KeyCode::JIS_KANA,  ModifierFlag::NONE ,           KeyCode::VK_JIS_COMMAND_SPACE_SEESAW_CUR_PRE, Option::NOREPEAT</autogen>
+        </item>
+
+        <item>
+<!-- Space to Tab -->
+          <name> Smart[command+Space] </name><!-- 2011.04.15(金)test -->
+          <appendix>テスト用</appendix>
+          <appendix>[sft]のみ+ひらがな　to REPLACE_PLUS_MINUS_SKIP_KANA</appendix>
+          <appendix>[ひら]のみ　　　　　to KANA_OTHERS</appendix>
+          <identifier>remap.severe_test201</identifier>
+          <autogen>--KeyToKey-- KeyCode::JIS_KANA , VK_SHIFT | ModifierFlag::NONE, KeyCode::VK_JIS_COMMAND_SPACE_REPLACE_PLUS_MINUS_SKIP_KANA, Option::NOREPEAT</autogen>
+          <autogen>--KeyToKey-- KeyCode::JIS_KANA,  ModifierFlag::NONE ,           KeyCode::VK_JIS_COMMAND_SPACE_SEESAW_KANA_OTHERS, Option::NOREPEAT</autogen>
+        </item>
+
+        <item>
+<!-- Space to Tab -->
+          <name> Smart[command+Space] </name><!-- 2011.04.15(金)test -->
+          <appendix>テスト用</appendix>
+          <appendix>[sft]のみ+ひらがな　to REPLACE_PLUS_MINUS_SKIP_EISUU</appendix>
+          <appendix>[ひら]のみ　　　　　to EISUU_OTHERS</appendix>
+          <identifier>remap.severe_test200</identifier>
+          <autogen>--KeyToKey-- KeyCode::JIS_KANA , VK_SHIFT | ModifierFlag::NONE, KeyCode::VK_JIS_COMMAND_SPACE_REPLACE_PLUS_MINUS_SKIP_EISUU, Option::NOREPEAT</autogen>
+          <autogen>--KeyToKey-- KeyCode::JIS_KANA,  ModifierFlag::NONE ,           KeyCode::VK_JIS_COMMAND_SPACE_SEESAW_EISUU_OTHERS, Option::NOREPEAT</autogen>
+        </item>
+
+            <item>
+              <name>Use Option_R as KANA/EISUU (toggle)</name><!-- 2011.04.14(木) test -->
+              <appendix>テスト用</appendix>
+              <identifier>remap.severe_test122</identifier>
+              <autogen>--KeyToKey-- KeyCode::COMMAND_R, KeyCode::VK_JIS_TOGGLE_EISUU_KANA</autogen>
+              <autogen>--KeyToKey-- KeyCode::A,  KeyCode::VK_JIS_TOGGLE_EISUU_KANA</autogen>
+            </item>
+
+        <item>
+<!-- Space to Tab -->
+          <name> Smart[command+Space] </name><!-- 2011.04.07(木)、14(木) -->
+          <appendix>正式採用</appendix>
+          <appendix>[opt]+[cmd]+space　to REPLACE_PLUS_MINUS_SKIP_EISUU</appendix>
+          <appendix>[cmd]+space　　　　to EISUU_OTHERS </appendix>
+          <identifier>remap.severe_test121</identifier>
+          <autogen>--KeyToKey-- KeyCode::SPACE, VK_OPTION | VK_COMMAND | ModifierFlag::NONE, KeyCode::VK_JIS_COMMAND_SPACE_REPLACE_PLUS_MINUS_SKIP_EISUU, Option::NOREPEAT</autogen>
+          <autogen>--KeyToKey-- KeyCode::SPACE, VK_COMMAND | ModifierFlag::NONE, KeyCode::VK_JIS_COMMAND_SPACE_SEESAW_EISUU_OTHERS, Option::NOREPEAT</autogen>
+        </item>
+
+        <item>
+<!-- Space to Tab -->
+          <name>親指シフト+Q to Smart[英数/かな]キー </name><!-- 2011.03.30(水)、04.14(木) -->
+          <appendix>Shift_L +Q        to REPLACE_PLUS_MINUS_SKIP_KANA_EISUU </appendix>
+          <appendix>Shift_R +Option_L to EISUU_KANA</appendix>
+          <appendix>Shift_R +Q        to KANA_OTHERS</appendix>
+          <identifier>remap.severe_test113</identifier>
+		  <autogen>--KeyToKey-- KeyCode::Q, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_COMMAND_SPACE_REPLACE_PLUS_MINUS_SKIP_KANA_EISUU, Option::NOREPEAT</autogen>
+          <autogen>--KeyToKey-- KeyCode::OPTION_L, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_COMMAND_SPACE_SEESAW_EISUU_KANA,  Option::NOREPEAT</autogen>
+		  <autogen>--KeyToKey-- KeyCode::Q, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_COMMAND_SPACE_SEESAW_KANA_OTHERS,  Option::NOREPEAT</autogen>
+        </item>
+
+        <item>
+<!-- Space to Tab -->
+          <name> Smart 英数・かなキー </name><!-- 2011.04.05(火) -->
+          <appendix>[sft]のみ+ひらがな　to REPLACE_PLUS_MINUS_SKIP_KANA_EISUU</appendix>
+          <appendix>[英数]のみ　　　　　to EISUU_KANA </appendix>
+          <appendix>[ひら]のみ　　　　　to KANA_OTHERS</appendix>
+          <identifier>remap.severe_test120</identifier>
+          <autogen>--KeyToKey-- KeyCode::JIS_KANA , VK_SHIFT | ModifierFlag::NONE, KeyCode::VK_JIS_COMMAND_SPACE_REPLACE_PLUS_MINUS_SKIP_KANA_EISUU, Option::NOREPEAT</autogen>
+          <autogen>--KeyToKey-- KeyCode::JIS_EISUU, ModifierFlag::NONE,            KeyCode::VK_JIS_COMMAND_SPACE_SEESAW_EISUU_KANA,  Option::NOREPEAT</autogen>
+          <autogen>--KeyToKey-- KeyCode::JIS_KANA,  ModifierFlag::NONE ,           KeyCode::VK_JIS_COMMAND_SPACE_SEESAW_KANA_OTHERS, Option::NOREPEAT</autogen>
+        </item>
+
 
         <item>
           <name>Option_R-ArrowUpDn to PageUp/Down Key</name><!-- 09.11.10 Haci -->
@@ -83,6 +184,17 @@
 
         </item>
 
+          <!-- 2011.02.21(月)pm04:37 Haci  -->
+        <item>
+          <name>Option_L(Q-key)+IKJL to Up/Down/Left/Right</name>
+          <appendix> Diamond Cursor(右利き用)</appendix>
+          <identifier>option.my_cursor_optionL(Q-key)_jkil</identifier>
+          <autogen>--KeyToKey-- KeyCode::I, ModifierFlag::OPTION_L, KeyCode::CURSOR_UP</autogen>
+          <autogen>--KeyToKey-- KeyCode::K, ModifierFlag::OPTION_L, KeyCode::CURSOR_DOWN</autogen>
+          <autogen>--KeyToKey-- KeyCode::J, ModifierFlag::OPTION_L, KeyCode::CURSOR_LEFT</autogen>
+          <autogen>--KeyToKey-- KeyCode::L, ModifierFlag::OPTION_L, KeyCode::CURSOR_RIGHT</autogen>
+        </item>
+
 
         <item>
           <name>Command/Control+Shift_L to Option+V/G(KAWASEMI: RuigiGo/KanrenMoji Henkan)</name><!-- Haci 09.12.4 Haci koko707 -->
@@ -114,26 +226,28 @@
           <identifier>remap.shf2shf_space__shfLshfRtoshfspace__shfRshfLtospace</identifier>
 		  <autogen>--KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::SPACE, ModifierFlag::SHIFT_L</autogen><!-- Hankaku space -->
 		  <autogen>--KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Zenkaku space: 09.12.25 repeat tsuki no Zenkaku space to Hankaku space wo tsukaiwakeru kotoga dekiru node.-->
-		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, KeyCode::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Hankaku space -->
-		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, KeyCode::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Hankaku space -->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, KeyCode::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Hankaku space  -->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, KeyCode::SHIFT_L, KeyCode::SPACE, ModifierFlag::SHIFT_L</autogen><!-- 半角スペース --><!-- 2011.02.20(日)モード変更指定を外した。ModifierFlag::SHIFT_Lの指定を忘れていた｡  -->
         </item>
 
         <item>
           <name>SandS (半角Space)[キーリピート無し] (右利き用)</name><!-- 08.12.22 Haci: for right-handed persons -->
           <appendix>SSandS (Shift_R+L to Shift+Han_Space, Shift_L+Shift_R to Zen_Space)+ [KeyRepeat]</appendix>
           <identifier>remap.shf2shf_space__shfRshfLtoshfspace__shfLshfRtospace</identifier>
-		  <autogen>--KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::SPACE, ModifierFlag::SHIFT_R</autogen><!-- Hankaku space -->
-		  <autogen>--KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Zenkaku space 09.12.25 -->
-		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, KeyCode::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Hankaku space --><!-- 10.2.13 逆変換にするためシフトRを追加 -->
-		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, KeyCode::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Hankaku space -->
+
+		  <autogen>--KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Zenkaku space 09.12.25 -->
+		  <autogen>--KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::SPACE, ModifierFlag::SHIFT_R</autogen><!-- Hankaku space -->
+
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, KeyCode::SHIFT_L, KeyCode::SPACE, ModifierFlag::SHIFT_R</autogen><!-- Hankaku space  --><!-- 10.2.13 逆変換にするためシフトRを追加  -->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, KeyCode::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Hankaku space  -->
 
         </item>
 
 
        <item>
-          <name>Command/Control+SPACE to Option+F/T(かわせみ: 和英/確定履歴 変換)</name><!--  09.12.4 Haci koko705 -->
+          <name>Command+Control+SPACE to Option+F/T(かわせみ: 和英/確定履歴 変換)</name><!--  09.12.4 Haci koko705 -->
           <identifier>remap.jis_commandORcontrolSpace2option_F_T</identifier>
-          <autogen>--KeyOverlaidModifier-- KeyCode::SPACE,VK_COMMAND, KeyCode::SPACE,VK_COMMAND, KeyCode::F,ModifierFlag::OPTION_R</autogen><!-- WaEi Henkan : MiKautei Joutai -->
+          <autogen>--KeyOverlaidModifier-- KeyCode::SPACE,VK_COMMAND|VK_OPTION, KeyCode::SPACE,VK_COMMAND, KeyCode::F,ModifierFlag::OPTION_R</autogen><!-- WaEi Henkan : MiKautei Joutai -->
           <autogen>--KeyOverlaidModifier-- KeyCode::SPACE,VK_CONTROL, KeyCode::SPACE,VK_CONTROL, KeyCode::T,ModifierFlag::OPTION_R</autogen><!-- Kakutei Rireki Henkan: After Kakutei -->
           											<!-- 09.12.6 KeyToKey dewa repeat shitesimau -->
           											<!-- 09.12.9 Redo no shortcut to onaji nanode dame nanode,Redo wa betsu no key ni settei sureba yoi. -->
@@ -192,7 +306,7 @@
 <!-- 11.1.8 JIS_AT,JIS_CARET  JIS_ATMARK,JIS_HAT -->
 <!-- 2011.02.04(金) VK_JIS_TEMPORARY_RESTOREを復活。 -->
 <block>
-    <inputmodedetail_only>ROMAN, JAPANESE, JAPANESE_HIRAGANA,JAPANESE_KATAKANA</inputmodedetail_only>
+    <inputmodedetail_only>AINU, ROMAN, JAPANESE, JAPANESE_HIRAGANA,JAPANESE_KATAKANA,JAPANESE_FULLWIDTH_ROMAN,JAPANESE_HALFWIDTH_KANA</inputmodedetail_only>
 
 <!-- 最上段L(Function) -->
   <!-- F1(Fn+1)-F5(Fn+5) そのまま -->
@@ -237,7 +351,7 @@
 	<autogen>--KeyToKey-- KeyCode::KEY_5, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_3,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
 	<autogen>--KeyToKey-- KeyCode::KEY_5, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_5, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
   <!-- 6 to optionL -->
-	<autogen>--KeyToKey-- KeyCode::KEY_6, KeyCode::OPTION_L, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_6, KeyCode::OPTION_L</autogen><!-- 2011.03.06(日)なぜKeyCode::VK_JIS_TEMPORARY_RESTOREを最後に指定していたのか? -->
 
 <!-- 最上段R -->
   <!-- 7+Shift to Command -(ZoomOut ) 091207 -->
@@ -308,7 +422,7 @@
 	<autogen>--KeyToKey-- KeyCode::TAB, ModifierFlag::NONE, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::SPACE, ModifierFlag::NONE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
       <!-- 10.3.7 ModifierFlag::NONEを追加-->
 	<autogen>--KeyToKey-- KeyCode::TAB, KeyCode::SPACE, ModifierFlag::NONE</autogen>
-      <!-- 10.3.7 半角space、これはCommand+Spaceでのモード変更を可能にするため -->
+      <!-- 10.3.7 半角space、これはCommand+Spaceでのモード変更を可能にするため	 -->
 
 <!-- 中段R -->
   <!-- Return(Enter key) to Enter -->
@@ -325,7 +439,11 @@
 <!-- ================================================= -->
 <!-- 下段L -->
   <!-- Space to Tab -->
-	<autogen>--KeyToKey-- KeyCode::SPACE, KeyCode::TAB</autogen>
+	<autogen>--KeyToKey-- KeyCode::SPACE, ModifierFlag::NONE, KeyCode::TAB, ModifierFlag::NONE</autogen><!-- 2011.03.17(木)pm11:08 , KeyCode::VK_NONE -->
+	<autogen>--KeyToKey-- KeyCode::SPACE, KeyCode::SPACE, ModifierFlag::NONE</autogen>
+      <!-- 2011.03.17(木) 従来は単純に､「KeyCode::SPACE, KeyCode::TAB」としていたが、TabからSPACEへのリマップを見て改良。 -->
+      <!--               Command+Spaceは上記Tabからのリマップと動作がなぜか異なる。押しっぱなしでSpaceをアップした時にパネルが消えてしまう。 -->
+      <!--               これは、AキーからリマップしてみるとTabからのと同じなので､KeyOverlaidModifierでのCommandキーからのリマップが影響している可能性が高い。 -->
 
 <!-- 下段R -->
   <!-- \ to OPTION_R -->
@@ -361,7 +479,7 @@
 <!-- 2011.02.04(金)pm12:50  KeyCode::VK_JIS_TEMPORARY_RESTORE(3ヶ所)を復活。 -->
 <!-- ==================================================================================================== -->
 <block>
-    <inputmodedetail_only>JAPANESE, JAPANESE_HIRAGANA,JAPANESE_KATAKANA</inputmodedetail_only>
+    <inputmodedetail_only>JAPANESE, JAPANESE_HIRAGANA,JAPANESE_KATAKANA,JAPANESE_HALFWIDTH_KANA</inputmodedetail_only>
 
 <!-- 10.1.18 ひらがなモードの時の「ヴ」のリピートは従来はINPUTMODE_DETAIL_JAPANESE_KATAKANAを指定しなくても問題無かったが、6.3.14かその直前のバージョンから動作が変わった。上記カタカナ現象と同様に、ヴのリピートでもモードが戻らない。これは、keytokey関数の引数がconstでなくなったことが原因かもしれない。 -->
 <!-- 上段L 09.12.11 -->
@@ -402,8 +520,9 @@
 	<autogen>--KeyToKey-- KeyCode::I, ModifierFlag::SHIFT_R, KeyCode::SLASH, KeyCode::VK_NONE</autogen>
 	<autogen>--KeyToKey-- KeyCode::I, ModifierFlag::NONE,    KeyCode::H, KeyCode::VK_NONE</autogen>
 	<!-- O to あ None む -->
-	<autogen>--KeyToKey-- KeyCode::O, ModifierFlag::SHIFT_L, KeyCode::VK_NONE, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::O, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
 			<!-- 09.12.12 6.2.27では、KeyCode::VK_NONEに副作用あり。「あ,None,む」の順に入力テストをすると、「む」を打った瞬間にAだけが確定してしまう。 -->
+			<!-- 2011.03.19(土)am10:32 VK_NONEを1つ削除。こんなところに設定して有ったのをすっかり忘れていた。 -->
 	<autogen>--KeyToKey-- KeyCode::O, ModifierFlag::SHIFT_R, KeyCode::BACKSLASH, KeyCode::VK_NONE</autogen>
 	<autogen>--KeyToKey-- KeyCode::O, ModifierFlag::NONE,    KeyCode::KEY_3, KeyCode::VK_NONE</autogen>
   <!-- P -->
@@ -411,7 +530,7 @@
 
 <block><!-- @+ShiftL to ヰ -->
 <!-- PS/2J(keylayoutファイル)のキーパッド(テンキー）を利用したカタカナは、別個にリマップが必要。全てシフトケースに設定してある。 -->
-  <inputmodedetail_only>JAPANESE_KATAKANA</inputmodedetail_only>
+  <inputmodedetail_only>JAPANESE_KATAKANA,JAPANESE_HALFWIDTH_KANA</inputmodedetail_only>
 <!-- 10.1.18 ことえり、あるいは、ATOK2009のバグに合わせて、VK_JIS_TEMPORARY_ROMANを指定すると、キーダウン時はこの中に入って来る。 -->
 <!-- リピートでなければ、処理が速いため、問題無く元のモードに戻る(と言うより変わる前に戻しているからか?)。 -->
 <!-- ただし、リピートしている間に英数モードに変わると、ここに入らずに(カタカナモードではないため）、キーアップしてもモードが戻らない。 -->
@@ -423,7 +542,7 @@
 
 </block>
 <block><!-- @+ShiftL to ゐ -->
-    <inputmodedetail_only>JAPANESE, JAPANESE_HIRAGANA</inputmodedetail_only>
+    <inputmodedetail_only>JAPANESE, JAPANESE_HIRAGANA,JAPANESE_HALFWIDTH_KANA</inputmodedetail_only>
 	<autogen>--KeyToKey-- KeyCode::JIS_ATMARK, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_0, KeyCode::VK_NONE</autogen>
 			<!-- 09.12.16 テンキーに設定したカタカナは、カタカナモードでNGなので、カタカナモードの場合はこの前段で設定する。 -->
 			<!-- 10.1.22 正しい「かわせみ」に合わせて、ROMANへのモード一時変更はしない。 -->
@@ -467,12 +586,15 @@
 						<!-- 10.2.16 test: 5段のKeyToKeyを実行しない場合の新方式の挙動を調べるため一時的に削除し、戻した。テストOK -->
 						<!-- 10.2.16 test: 新方式の挙動を調べるためVK_NONEを指定して、5段のKeyToKeyに入るようにするテスト。 -->
 						<!-- 10.2.16 test: , KeyCode::VK_NONEを指定しないテスト。やはり連打で誤変換されるので駄目。 -->
+						<!-- 2011.03.15(火) test: KeyCode::VK_NONEを削除。 -->
+		<!-- 2011.03.16(水) test: KeyCode::VK_NONE 2個方式 -->
+		<!-- 2011.03.19(土) 昨夜､Command+Space対応が完成した時に､個のキーを押した時点でおかしくなっていて､その原因をつかむのに数時間かかった。KeyCode::VK_NONE 1個を削除。 -->
 
 
   <!-- K to う ヴ ー(長音記号) -->
 	<autogen>--KeyToKey-- KeyCode::K, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_KATAKANA, KeyCode::KEY_4, KeyCode::JIS_DAKUON, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
 	<autogen>--KeyToKey-- KeyCode::K, ModifierFlag::SHIFT_R, KeyCode::JIS_YEN, KeyCode::VK_NONE</autogen>
-	<autogen>--KeyToKey-- KeyCode::K, ModifierFlag::NONE   , KeyCode::KEY_4,   KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::K, ModifierFlag::NONE   , KeyCode::KEY_4</autogen>
 					<!-- 10.2.6 test: 5段のKeyToKeyを実行させる為にVK_NONEを追加。 -->
 					<!-- 10.2.8 testNG: VK_JIS_TEMPORARY_HIRAGANAを必須で指定し、VK_JIS_TEMPORARY_RESTOREは指定無し。結局ひらがなモードに戻ってないと、ひらがなモードのここには入らないので根本的に駄目。単純でいいと思ったんだけどね。 -->
 					<!-- 10.2.12 モード変更が完璧に仕上がったので、VK_JIS_TEMPORARY_HIRAGANAを削除。ヴの方もVK_JIS_TEMPORARY_RESTOREを外していたのを忘れていたので戻した。2.16 削除し忘れていた。5段のKeyToKeyを必ず通すテストの為の, KeyCode::VK_NONEも削除し忘れていた。 -->
@@ -481,6 +603,7 @@
 					<!-- 10.2.28 ここだけVK_JIS_TEMPORARY_RESTOREを正式採用。VK_NONEを最後に指定するのが正式だが、どっちでも動作するという確認を含めて。 -->
 					<!-- 10.3.6 VK_JIS_TEMPORARY_RESTOREを削除。ついつい打ってしまうのでデバッグで使いにくいので。 -->
 					<!-- 2011.02.04(金) VK_JIS_TEMPORARY_RESTOREを復活。 -->
+					<!-- 2011.03.16(水) test: VK_NONE 1個と無しのケース -->
   <!-- L to し じ み -->
 	<autogen>--KeyToKey-- KeyCode::L, ModifierFlag::SHIFT_L, KeyCode::D, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
 	<autogen>--KeyToKey-- KeyCode::L, ModifierFlag::SHIFT_R, KeyCode::N, KeyCode::VK_NONE</autogen>
@@ -488,11 +611,11 @@
 
   <!-- ; to ん ゑ や -->
 <block><!-- ;+ShiftL to ヱ -->
-  <inputmodedetail_only>JAPANESE_KATAKANA</inputmodedetail_only>
+  <inputmodedetail_only>JAPANESE_KATAKANA,JAPANESE_HALFWIDTH_KANA</inputmodedetail_only>
 	<autogen>--KeyToKey-- KeyCode::SEMICOLON, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_1,VK_SHIFT, KeyCode::VK_NONE</autogen>
 </block>
 <block><!-- ;+ShiftL to ゑ -->
-    <inputmodedetail_only>JAPANESE, JAPANESE_HIRAGANA</inputmodedetail_only>
+    <inputmodedetail_only>JAPANESE, JAPANESE_HIRAGANA,JAPANESE_HALFWIDTH_KANA</inputmodedetail_only>
 	<autogen>--KeyToKey-- KeyCode::SEMICOLON, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_1, KeyCode::VK_NONE</autogen>
 			<!-- 09.12.16 テンキーに設定したカタカナは、カタカナモードでNGなので、カタカナモードの場合はこの前段で設定する。 -->
 			<!-- 10.1.22 正しい「かわせみ」に合わせて、ROMANへのモード一時変更はしない。 -->
@@ -558,11 +681,11 @@
   <!-- Slash to っ ゎ ぅ -->
 <block><!-- /+ShiftL to ヮ -->
 			<!-- 10.1.31 blockのネストでまとめる。 -->
-  <inputmodedetail_only>JAPANESE_KATAKANA</inputmodedetail_only>
+  <inputmodedetail_only>JAPANESE_KATAKANA,JAPANESE_HALFWIDTH_KANA</inputmodedetail_only>
 	<autogen>--KeyToKey-- KeyCode::SLASH, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_2,VK_SHIFT, KeyCode::VK_NONE</autogen>
 </block>
 <block><!-- /+ShiftL to ゎ -->
-    <inputmodedetail_only>JAPANESE, JAPANESE_HIRAGANA</inputmodedetail_only>
+    <inputmodedetail_only>JAPANESE, JAPANESE_HIRAGANA,JAPANESE_HALFWIDTH_KANA</inputmodedetail_only>
 	<autogen>--KeyToKey-- KeyCode::SLASH, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_2, KeyCode::VK_NONE</autogen>
 	<!-- 10.1.22 正しい「かわせみ」に合わせて、ROMANへのモード一時変更はしない。 -->
 </block><!-- /+ShiftL to ぅ、/ to っ -->
@@ -593,7 +716,7 @@
 <!-- 11.1.8 JIS_AT,JIS_CARET  JIS_ATMARK,JIS_HAT -->
 <!-- 2011.02.04(金) VK_JIS_TEMPORARY_RESTOREを復活。 -->
 <block>
-    <inputmodedetail_only>ROMAN, JAPANESE, JAPANESE_HIRAGANA,JAPANESE_KATAKANA</inputmodedetail_only>
+    <inputmodedetail_only>AINU, ROMAN, JAPANESE, JAPANESE_HIRAGANA,JAPANESE_KATAKANA,JAPANESE_FULLWIDTH_ROMAN,JAPANESE_HALFWIDTH_KANA</inputmodedetail_only>
 
 <!-- 最上段L(Function) -->
   <!-- F1(Fn+1)-F5(Fn+5) そのまま -->
@@ -723,7 +846,7 @@
 	<autogen>--KeyToKey-- KeyCode::BACKSLASH, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_5,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
 	<autogen>--KeyToKey-- KeyCode::BACKSLASH, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::MINUS,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
 
-<!-- ================================================= -->
+<!-- =================================================  -->
 <!-- 下段L -->
   <!-- Space to Tab -->
 	<autogen>--KeyToKey-- KeyCode::SPACE, KeyCode::TAB</autogen>
