@@ -1,0 +1,30 @@
+NONE 0
+
+// Roman, Password, ...
+ROMAN               --AUTO--
+
+// Japanese, Japanese.*
+JAPANESE            --AUTO--
+
+CHINESE_TRADITIONAL --AUTO--
+CHINESE_SIMPLIFIED  --AUTO--
+KOREAN              --AUTO--
+SWEDISH             --AUTO--
+CANADIAN            --AUTO--
+AINU                --AUTO--
+RUSSIAN             --AUTO--
+FRENCH              --AUTO--
+
+// http://bepo.fr/wiki/Mac_OS_X
+BEPO                --AUTO--
+
+DVORAK              --AUTO--
+
+// http://ilyabirman.ru/typography-layout/
+RUSSIAN_TYPOGRAPHIC --AUTO--
+
+// http://ilyabirman.ru/typography-layout/
+ENGLISH_TYPOGRAPHIC --AUTO--
+
+// User Defined keylayout (example: org.unknown.keylayout.JANSI)
+UNKNOWN             --AUTO--

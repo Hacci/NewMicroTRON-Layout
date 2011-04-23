@@ -1,0 +1,115 @@
+<!-- 10.2.13 SandSで逆変換にするためシフトRを追加 -->
+<!-- 10.2.16 連打対策の新方式は、このファイルではKeyCode::VK_JIS_TEMPORARY_RESTOREを削除しない。SandSのスペースなので多用するキーだし、元に戻った方がいいので。 -->
+<item>
+  <name>general</name>
+  <list>
+
+        <item>
+          <name>Use short-cut of IM change</name><!-- 10.1.24 test Haci システムのショートカット(初期値Command+Option+Space)を利用してモード一時変更をする場合 -->
+          <sysctl>remap.use_shortcut_IM</sysctl>
+        </item>
+
+        <item>
+          <name>Option_R-ArrowUpDn to PageUp/Down Key</name><!-- 09.11.10 Haci -->
+          <appendix>(when you hold Option_R, send Home/End)</appendix>
+          <sysctl>remap.optionR_arrowUpDn2pageUpDown_Holding_optionR_to_HomeEnd</sysctl>
+          <autogen>--ModifierHoldingKeyToKey-- KeyCode::CURSOR_UP,   ModifierFlag::OPTION_R,  KeyCode::HOME</autogen>
+          <autogen>--ModifierHoldingKeyToKey-- KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_R,  KeyCode::END</autogen>
+          <autogen>--KeyToKey-- KeyCode::CURSOR_UP,   ModifierFlag::OPTION_R, KeyCode::PAGEUP</autogen><!-- 09.11.10 must be bellow HOME/END -->
+          <autogen>--KeyToKey-- KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_R, KeyCode::PAGEDOWN</autogen>
+        </item>
+
+
+        <item>
+          <name>Command_L+arrow_UP to PageUp</name><!-- 08.7.16 Haci1 -->
+          <appendix>(when you hold Command_L, send PageUp)</appendix>
+          <sysctl>remap.commandLlong_arrowUp2pageup</sysctl>
+          <autogen>--ModifierHoldingKeyToKey-- KeyCode::CURSOR_UP, ModifierFlag::COMMAND_L, KeyCode::PAGEUP</autogen>
+        </item>
+        <item>
+          <name>Command_L+arrow_DOWN to PageDown</name><!-- 08.7.16 Haci -->
+          <appendix>(when you hold Command_L, send PageDown)</appendix>
+          <sysctl>remap.commandLlong_arrowDn2pagedown</sysctl>
+          <autogen>--ModifierHoldingKeyToKey-- KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_L, KeyCode::PAGEDOWN</autogen>
+        </item>
+
+        <item>
+          <name>Command_R+arrow_UP to PageUp</name><!-- 08.7.16 Haci2 -->
+          <appendix>(when you hold Command_R, send PageUp)</appendix>
+          <sysctl>remap.commandRlong_arrowUp2pageup</sysctl>
+          <autogen>--ModifierHoldingKeyToKey-- KeyCode::CURSOR_UP, ModifierFlag::COMMAND_R, KeyCode::PAGEUP</autogen>
+        </item>
+        <item>
+          <name>Command_R+arrow_DOWN to PageDown</name><!-- 08.7.16 Haci -->
+          <appendix>(when you hold Command_R, send PageDown)</appendix>
+          <sysctl>remap.commandRlong_arrowDn2pagedown</sysctl>
+          <autogen>--ModifierHoldingKeyToKey-- KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_R, KeyCode::PAGEDOWN</autogen>
+        </item>
+
+
+          <!-- 09.11.5 Haci remap.holding_command_to_f1_f12 -->
+        <item>
+          <name>Command(Holding)+num to F1-F12</name><!-- 09.11.5 Haci -->
+          <sysctl>remap.holding_command_to_f1_f12</sysctl>
+        </item>
+
+
+        <item>
+          <name>Command/Control+Shift_L to Option+V/G(KAWASEMI: RuigiGo/KanrenMoji Henkan)</name><!-- Haci 09.12.4 Haci koko707 -->
+          <sysctl>remap.jis_commandORcontrolShiftL2option_V_G</sysctl>
+          <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L,VK_COMMAND, KeyCode::SHIFT_L,VK_COMMAND, KeyCode::V,ModifierFlag::OPTION_R</autogen><!-- Ruigigo Henkan : MiKautei Joutai -->
+          <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L,VK_CONTROL, KeyCode::SHIFT_L,VK_CONTROL, KeyCode::G,ModifierFlag::OPTION_R</autogen><!-- KanrenMoji Henkan : MiKautei Joutai-->
+          											<!-- 09.12.6 KeyToKey dewa repeat shitesimau -->
+          											<!-- 09.12.9 Redo no shortcut to onaji nanode dame nanode,Redo wa betsu no key ni settei sureba yoi. -->
+          											<!-- 09.12.9 change keyTokey to KeyOverlaidModifier without repeat -->
+							<!-- 09.12.9 6.2.16 de wa kano item no ichiban saigo demo yokattaga, 6.2.27 dewa remap.shiftL2shiftL_space no ato ni haichi suruto, space ni natta ato de ctrl+space to natte shimau. -->
+        </item>
+        <item>
+          <name>Command/Control+Shift_R to Option+F/T(KAWASEMI: WaEi/KakuteiRireki Henkan)</name><!--  09.12.4 Haci koko705 -->
+          <sysctl>remap.jis_commandORcontrolShiftR2option_F_T</sysctl>
+          <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R,VK_COMMAND, KeyCode::SHIFT_R,VK_COMMAND, KeyCode::F,ModifierFlag::OPTION_R</autogen><!-- WaEi Henkan : MiKautei Joutai -->
+          <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R,VK_CONTROL, KeyCode::SHIFT_R,VK_CONTROL, KeyCode::T,ModifierFlag::OPTION_R</autogen><!-- Kakutei Rireki Henkan: After Kakutei -->
+          											<!-- 09.12.6 KeyToKey dewa repeat shitesimau -->
+          											<!-- 09.12.9 Redo no shortcut to onaji nanode dame nanode,Redo wa betsu no key ni settei sureba yoi. -->
+          											<!-- 09.12.9 change keyTokey to KeyOverlaidModifier without repeat -->
+							<!-- 09.12.9 6.2.16 de wa kano item no ichiban saigo demo yokattaga, 6.2.27 dewa remap.shiftR2shiftR_space no ato ni haichi suruto, space ni natta ato de ctrl+space to natte shimau. -->
+							<!-- 09.12.23 remap.shf2shf_space__shfLshfRtoshfspace__shfRshfLtospace de shiftR mo matometa node sono mae ni nai to dousa shinai node kokoni idou. -->
+        </item>
+
+
+        <item>
+          <name>SandS (Han_Space)[No KeyRepeat] for left-handed persons</name><!-- 08.12.22 Haci: for left-handed persons -->
+          <appendix>SSandS (Shift_L+R to Shift+Han_Space, Shift_R+L to Zen_Space)+ [KeyRepeat]</appendix>
+          <external_sysctl_not>config.remap_shf2shf_space__shfRshfLtoshfspace__shfLshfRtospace</external_sysctl_not>
+          <sysctl>remap.shf2shf_space__shfLshfRtoshfspace__shfRshfLtospace</sysctl>
+		  <autogen>--KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::SPACE, ModifierFlag::SHIFT_L</autogen><!-- Hankaku space -->
+		  <autogen>--KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Zenkaku space: 09.12.25 repeat tsuki no Zenkaku space to Hankaku space wo tsukaiwakeru kotoga dekiru node.-->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, KeyCode::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Hankaku space -->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, KeyCode::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Hankaku space -->
+        </item>
+
+        <item>
+          <name>SandS (Han_Space)[No KeyRepeat] for right-handed persons</name><!-- 08.12.22 Haci: for right-handed persons -->
+          <appendix>SSandS (Shift_R+L to Shift+Han_Space, Shift_L+Shift_R to Zen_Space)+ [KeyRepeat]</appendix>
+          <sysctl>remap.shf2shf_space__shfRshfLtoshfspace__shfLshfRtospace</sysctl>
+		  <autogen>--KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::SPACE, ModifierFlag::SHIFT_R</autogen><!-- Hankaku space -->
+		  <autogen>--KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Zenkaku space 09.12.25 -->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, KeyCode::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Hankaku space --><!-- 10.2.13 逆変換にするためシフトRを追加 -->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, KeyCode::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Hankaku space -->
+        </item>
+
+
+       <item>
+          <name>Command/Control+SPACE to Option+F/T(KAWASEMI: WaEi/KakuteiRireki Henkan)</name><!--  09.12.4 Haci koko705 -->
+          <sysctl>remap.jis_commandORcontrolSpace2option_F_T</sysctl>
+          <autogen>--KeyOverlaidModifier-- KeyCode::SPACE,VK_COMMAND, KeyCode::SPACE,VK_COMMAND, KeyCode::F,ModifierFlag::OPTION_R</autogen><!-- WaEi Henkan : MiKautei Joutai -->
+          <autogen>--KeyOverlaidModifier-- KeyCode::SPACE,VK_CONTROL, KeyCode::SPACE,VK_CONTROL, KeyCode::T,ModifierFlag::OPTION_R</autogen><!-- Kakutei Rireki Henkan: After Kakutei -->
+          											<!-- 09.12.6 KeyToKey dewa repeat shitesimau -->
+          											<!-- 09.12.9 Redo no shortcut to onaji nanode dame nanode,Redo wa betsu no key ni settei sureba yoi. -->
+          											<!-- 09.12.9 change keyTokey to KeyOverlaidModifier without repeat -->
+							<!-- 09.12.9 6.2.16 de wa kano item no ichiban saigo demo yokattaga, 6.2.27 dewa remap.shiftR2shiftR_space no ato ni haichi suruto, space ni natta ato de ctrl+space to natte shimau.ナンだ -->
+        </item>
+
+
+  </list>
+</item>

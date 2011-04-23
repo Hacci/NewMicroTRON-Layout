@@ -1,0 +1,210 @@
+<!-- UTF-8 -->
+<!-- μTRONキーボード用のμTRON配列 -->
+<!-- 09.12.28 6.2.58 or later Haci -->
+<!-- 09.11.25 autogen は1行で記述すること。 -->
+<!-- 09.12.30 6.2.60から日本語をコメントで書けるようになった。 -->
+<!-- 10.1.17 6.3.14: blockタグで場合分け -->
+<!-- 10.1.22 キーパッド(テンキー)を利用したリマップで、ROMANへのモード一時変更すると、リピートでモードが戻らなくなるという問題が6.3.14から出るようになった。本来キーパッドは全てのモード共通なので、ことえり/ATOK2009のバグには対応せず、正しい「かわせみ」に合わせて、モード一時変更はしない。 -->
+<!-- 10.1.31 6.4.7: キーパッドを利用したカタカナは、blockタグをネストして、まとめる。 -->
+<!-- 10.2.16 連打対策の新方式のため、KeyCode::VK_NONEを全てに追加して、2段以上にして、必ず5段のKeyToKeyに入るようにする。 -->
+<!-- 		 KeyCode::VK_JIS_TEMPORARY_RESTOREを1段目に入れる方法でもいいが、後で戻すとしても、置換しやすいので、最後に付加した。 -->
+<!-- 		 また、KeyCode::VK_JIS_TEMPORARY_RESTOREも削除。 -->
+<!-- ==================================================================================================== -->
+<block>
+    <inputmodedetail_only>INPUTMODE_DETAIL_JAPANESE, INPUTMODE_DETAIL_JAPANESE_HIRAGANA,INPUTMODE_DETAIL_JAPANESE_KATAKANA</inputmodedetail_only>
+
+<!-- 10.1.18 ひらがなモードの時の「ヴ」のリピートは従来はINPUTMODE_DETAIL_JAPANESE_KATAKANAを指定しなくても問題無かったが、6.3.14かその直前のバージョンから動作が変わった。上記カタカナ現象と同様に、ヴのリピートでもモードが戻らない。これは、keytokey関数の引数がconstでなくなったことが原因かもしれない。 -->
+<!-- 上段L 09.12.11 -->
+  <!-- 半角/全角 to ら ひ び -->
+	<autogen>--KeyToKey-- KeyCode::JIS_HAN_ZEN, ModifierFlag::SHIFT_L, KeyCode::V, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::JIS_HAN_ZEN, ModifierFlag::SHIFT_R, KeyCode::V, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::JIS_HAN_ZEN, ModifierFlag::NONE,    KeyCode::O, KeyCode::VK_NONE</autogen>
+											<!-- これのため、commonより前の必要がある。 -->
+											<!-- ModifierFlag::NONE指定 ... Command+C 等をスキップするため。 -->
+  <!-- W to る そ ぞ -->
+	<autogen>--KeyToKey-- KeyCode::W, ModifierFlag::SHIFT_L, KeyCode::C, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::W, ModifierFlag::SHIFT_R, KeyCode::C, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::W, ModifierFlag::NONE,    KeyCode::DOT, KeyCode::VK_NONE</autogen>
+  <!-- E to こ ・(中点) ご -->
+	<autogen>--KeyToKey-- KeyCode::E, ModifierFlag::SHIFT_L, KeyCode::SLASH, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::E, ModifierFlag::SHIFT_R, KeyCode::B, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::E, ModifierFlag::NONE,    KeyCode::B, KeyCode::VK_NONE</autogen>
+  <!-- R to は ゃ ば -->
+	<autogen>--KeyToKey-- KeyCode::R, ModifierFlag::SHIFT_L, KeyCode::KEY_7, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::R, ModifierFlag::SHIFT_R, KeyCode::F, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::R, ModifierFlag::NONE,    KeyCode::F, KeyCode::VK_NONE</autogen>
+  <!-- T to ょ ほ ぼ -->
+	<autogen>--KeyToKey-- KeyCode::T, ModifierFlag::SHIFT_L, KeyCode::MINUS, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::T, ModifierFlag::SHIFT_R, KeyCode::MINUS, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::T, ModifierFlag::NONE,    KeyCode::KEY_9, VK_SHIFT, KeyCode::VK_NONE</autogen>
+
+<!-- 上段R 	091127,1211 -->
+<!-- Y to き ぎ え -->
+	<autogen>--KeyToKey-- KeyCode::Y, ModifierFlag::SHIFT_L, KeyCode::G, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::Y, ModifierFlag::SHIFT_R, KeyCode::KEY_5, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::Y, ModifierFlag::NONE,    KeyCode::G, KeyCode::VK_NONE</autogen>
+  <!-- U to の げ け -->
+	<autogen>--KeyToKey-- KeyCode::U, ModifierFlag::SHIFT_L, KeyCode::JIS_COLON, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::U, ModifierFlag::SHIFT_R, KeyCode::JIS_COLON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::U, ModifierFlag::NONE,    KeyCode::K, KeyCode::VK_NONE</autogen>
+  <!-- I to く ぐ め -->
+	<autogen>--KeyToKey-- KeyCode::I, ModifierFlag::SHIFT_L, KeyCode::H, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::I, ModifierFlag::SHIFT_R, KeyCode::SLASH, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::I, ModifierFlag::NONE,    KeyCode::H, KeyCode::VK_NONE</autogen>
+	<!-- O to あ None む -->
+	<autogen>--KeyToKey-- KeyCode::O, ModifierFlag::SHIFT_L, KeyCode::VK_NONE, KeyCode::VK_NONE</autogen>
+			<!-- 09.12.12 6.2.27では、KeyCode::VK_NONEに副作用あり。「あ,None,む」の順に入力テストをすると、「む」を打った瞬間にAだけが確定してしまう。 -->
+	<autogen>--KeyToKey-- KeyCode::O, ModifierFlag::SHIFT_R, KeyCode::BACKSLASH, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::O, ModifierFlag::NONE,    KeyCode::KEY_3, KeyCode::VK_NONE</autogen>
+  <!-- P -->
+  <!-- @ to れ ゐ ろ(CtrlR to 94 by PCKeybordHack)   -->
+
+<block><!-- @+ShiftL to ヰ -->
+<!-- PS/2J(keylayoutファイル)のキーパッド(テンキー）を利用したカタカナは、別個にリマップが必要。全てシフトケースに設定してある。 -->
+  <inputmodedetail_only>INPUTMODE_DETAIL_JAPANESE_KATAKANA</inputmodedetail_only>
+<!-- 10.1.18 ことえり、あるいは、ATOK2009のバグに合わせて、VK_JIS_TEMPORARY_ROMANを指定すると、キーダウン時はこの中に入って来る。 -->
+<!-- リピートでなければ、処理が速いため、問題無く元のモードに戻る(と言うより変わる前に戻しているからか?)。 -->
+<!-- ただし、リピートしている間に英数モードに変わると、ここに入らずに(カタカナモードではないため）、キーアップしてもモードが戻らない。 -->
+<!-- モードが戻らないだけでなく、シフトケースの場合は、シフトキーだけを押し続けると、リピートが止まらないという、おまけまで付く。これに対処するのはblockタグでも無理。 -->
+<!-- やはり、バグがあるのが悪いので、正常に動作する「かわせみ」を使用する前提で、モード変更はしないこととする。 -->
+<!-- 結局、キーパッド(テンキー)に割り当てても絶対に問題が起きないのは(VK_JIS_TEMPORARY_xxxを指定した場合にも)、かな/英数共通で使用するキー、つまり、inputmodedetail_onlyタグ指定が無い場合ということだ。 -->
+<!-- 10.1.31 blockのネストでまとめる。 -->
+	<autogen>--KeyToKey-- KeyCode::JIS_AT, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_0,VK_SHIFT, KeyCode::VK_NONE</autogen>
+
+</block>
+<block><!-- @+ShiftL to ゐ -->
+    <inputmodedetail_only>INPUTMODE_DETAIL_JAPANESE, INPUTMODE_DETAIL_JAPANESE_HIRAGANA</inputmodedetail_only>
+	<autogen>--KeyToKey-- KeyCode::JIS_AT, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_0, KeyCode::VK_NONE</autogen>
+			<!-- 09.12.16 テンキーに設定したカタカナは、カタカナモードでNGなので、カタカナモードの場合はこの前段で設定する。 -->
+			<!-- 10.1.22 正しい「かわせみ」に合わせて、ROMANへのモード一時変更はしない。 -->
+</block>
+	<autogen>--KeyToKey-- KeyCode::JIS_AT, ModifierFlag::SHIFT_R, KeyCode::JIS_UNDERSCORE, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::JIS_AT, ModifierFlag::NONE,    KeyCode::SEMICOLON, KeyCode::VK_NONE</autogen>
+
+<!-- ================================================= -->
+<!-- 中段L 091128,1201,1211 -->
+  <!-- A to た ぬ だ -->
+	<autogen>--KeyToKey-- KeyCode::A, ModifierFlag::SHIFT_L, KeyCode::KEY_1, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::A, ModifierFlag::SHIFT_R, KeyCode::Q, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::A, ModifierFlag::NONE,    KeyCode::Q, KeyCode::VK_NONE</autogen>
+  <!-- S to と ね ど -->
+	<autogen>--KeyToKey-- KeyCode::S, ModifierFlag::SHIFT_L, KeyCode::COMMA, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::S, ModifierFlag::SHIFT_R, KeyCode::S, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::S, ModifierFlag::NONE,    KeyCode::S, KeyCode::VK_NONE</autogen>
+  <!-- D to か ゅ が -->
+	<autogen>--KeyToKey-- KeyCode::D, ModifierFlag::SHIFT_L, KeyCode::KEY_8, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::D, ModifierFlag::SHIFT_R, KeyCode::T, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::D, ModifierFlag::NONE,    KeyCode::T, KeyCode::VK_NONE</autogen>
+  <!-- F to て よ で -->
+	<autogen>--KeyToKey-- KeyCode::F, ModifierFlag::SHIFT_L, KeyCode::KEY_9, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::F, ModifierFlag::SHIFT_R, KeyCode::W, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::F, ModifierFlag::NONE,    KeyCode::W, KeyCode::VK_NONE</autogen>
+  <!-- G to も ふ ぶ -->
+	<autogen>--KeyToKey-- KeyCode::G, ModifierFlag::SHIFT_L, KeyCode::KEY_2, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::G, ModifierFlag::SHIFT_R, KeyCode::KEY_2, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::G, ModifierFlag::NONE,    KeyCode::M, KeyCode::VK_NONE</autogen>
+
+<!-- 中段R 091201,1211 -->
+  <!-- H to を ゛(濁点) お -->
+	<autogen>--KeyToKey-- KeyCode::H, ModifierFlag::SHIFT_L, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::H, ModifierFlag::SHIFT_R, KeyCode::KEY_6, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::H, ModifierFlag::NONE,    KeyCode::KEY_0, VK_SHIFT, KeyCode::VK_NONE</autogen>
+  <!-- J to い ぢ ち -->
+	<autogen>--KeyToKey-- KeyCode::J, ModifierFlag::SHIFT_L, KeyCode::A, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::J, ModifierFlag::SHIFT_R, KeyCode::A, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::J, ModifierFlag::NONE,    KeyCode::E, KeyCode::VK_NONE</autogen>
+						<!-- 10.2.16 test: 5段のKeyToKeyを実行しない場合の新方式の挙動を調べるため一時的に削除 -->
+						<!-- 10.2.16 test: 5段のKeyToKeyを実行しない場合の新方式の挙動を調べるため一時的に削除し、戻した。テストOK -->
+						<!-- 10.2.16 test: 新方式の挙動を調べるためVK_NONEを指定して、5段のKeyToKeyに入るようにするテスト。 -->
+						<!-- 10.2.16 test: , KeyCode::VK_NONEを指定しないテスト。やはり連打で誤変換されるので駄目。 -->
+
+
+  <!-- K to う ヴ ー(長音記号) -->
+	<autogen>--KeyToKey-- KeyCode::K, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_KATAKANA, KeyCode::KEY_4, KeyCode::JIS_DAKUON</autogen>
+	<autogen>--KeyToKey-- KeyCode::K, ModifierFlag::SHIFT_R, KeyCode::JIS_YEN, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::K, ModifierFlag::NONE   , KeyCode::KEY_4,   KeyCode::VK_NONE</autogen>
+					<!-- 10.2.6 test: 5段のKeyToKeyを実行させる為にVK_NONEを追加。 -->
+					<!-- 10.2.8 testNG: VK_JIS_TEMPORARY_HIRAGANAを必須で指定し、VK_JIS_TEMPORARY_RESTOREは指定無し。結局ひらがなモードに戻ってないと、ひらがなモードのここには入らないので根本的に駄目。単純でいいと思ったんだけどね。 -->
+					<!-- 10.2.12 モード変更が完璧に仕上がったので、VK_JIS_TEMPORARY_HIRAGANAを削除。ヴの方もVK_JIS_TEMPORARY_RESTOREを外していたのを忘れていたので戻した。2.16 削除し忘れていた。5段のKeyToKeyを必ず通すテストの為の, KeyCode::VK_NONEも削除し忘れていた。 -->
+					<!-- 10.2.12 新方式のテストでVK_JIS_TEMPORARY_RESTOREを最初に指定する。動作完璧。テストOK。 -->
+					<!-- 10.2.27 test用のKeyCode::VK_JIS_TEMPORARY_RESTOREを外す。 -->
+					<!-- 10.2.28 ここだけVK_JIS_TEMPORARY_RESTOREを正式採用。VK_NONEを最後に指定するのが正式だが、どっちでも動作するという確認を含めて。 -->
+					<!-- 10.3.6 VK_JIS_TEMPORARY_RESTOREを削除。ついつい打ってしまうのでデバッグで使いにくいので。 -->
+  <!-- L to し じ み -->
+	<autogen>--KeyToKey-- KeyCode::L, ModifierFlag::SHIFT_L, KeyCode::D, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::L, ModifierFlag::SHIFT_R, KeyCode::N, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::L, ModifierFlag::NONE,    KeyCode::D, KeyCode::VK_NONE</autogen>
+
+  <!-- ; to ん ゑ や -->
+<block><!-- ;+ShiftL to ヱ -->
+  <inputmodedetail_only>INPUTMODE_DETAIL_JAPANESE_KATAKANA</inputmodedetail_only>
+	<autogen>--KeyToKey-- KeyCode::SEMICOLON, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_1,VK_SHIFT, KeyCode::VK_NONE</autogen>
+</block>
+<block><!-- ;+ShiftL to ゑ -->
+    <inputmodedetail_only>INPUTMODE_DETAIL_JAPANESE, INPUTMODE_DETAIL_JAPANESE_HIRAGANA</inputmodedetail_only>
+	<autogen>--KeyToKey-- KeyCode::SEMICOLON, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_1, KeyCode::VK_NONE</autogen>
+			<!-- 09.12.16 テンキーに設定したカタカナは、カタカナモードでNGなので、カタカナモードの場合はこの前段で設定する。 -->
+			<!-- 10.1.22 正しい「かわせみ」に合わせて、ROMANへのモード一時変更はしない。 -->
+			<!-- 10.1.31 blockのネストでまとめる。 -->
+</block>
+	<autogen>--KeyToKey-- KeyCode::SEMICOLON, ModifierFlag::SHIFT_R, KeyCode::KEY_7, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::SEMICOLON, ModifierFlag::NONE,    KeyCode::Y, KeyCode::VK_NONE</autogen>
+
+<!-- ================================================= -->
+<!-- 下段L 1201,1211 -->
+  <!-- Z to ま ぇ ヵ -->
+	<autogen>--KeyToKey-- KeyCode::Z, ModifierFlag::SHIFT_L, KeyCode::KEY_5, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::Z, ModifierFlag::SHIFT_R, KeyCode::KEYPAD_4, KeyCode::VK_NONE</autogen>
+	<!-- 10.1.22 正しい「かわせみ」に合わせて、ROMANへのモード一時変更はしない。 -->
+	<autogen>--KeyToKey-- KeyCode::Z, ModifierFlag::NONE, KeyCode::J, KeyCode::VK_NONE</autogen>
+  <!-- X to り ぉ ヶ -->
+	<autogen>--KeyToKey-- KeyCode::X, ModifierFlag::SHIFT_L, KeyCode::KEY_6, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::X, ModifierFlag::SHIFT_R, KeyCode::KEYPAD_4,VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<!-- 10.1.22 正しい「かわせみ」に合わせて、ROMANへのモード一時変更はしない。 -->
+	<autogen>--KeyToKey-- KeyCode::X, ModifierFlag::NONE, KeyCode::L, KeyCode::VK_NONE</autogen>
+  <!-- C to に せ ぜ -->
+	<autogen>--KeyToKey-- KeyCode::C, ModifierFlag::SHIFT_L, KeyCode::P, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::C, ModifierFlag::SHIFT_R, KeyCode::P, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::C, ModifierFlag::NONE, KeyCode::I, KeyCode::VK_NONE</autogen>
+  <!-- V to さ ゆ ざ -->
+	<autogen>--KeyToKey-- KeyCode::V, ModifierFlag::SHIFT_L, KeyCode::KEY_8, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::V, ModifierFlag::SHIFT_R, KeyCode::X, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::V, ModifierFlag::NONE, KeyCode::X, KeyCode::VK_NONE</autogen>
+  <!-- B to な へ べ -->
+	<autogen>--KeyToKey-- KeyCode::B, ModifierFlag::SHIFT_L, KeyCode::JIS_CARET, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::B, ModifierFlag::SHIFT_R, KeyCode::JIS_CARET, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::B, ModifierFlag::NONE, KeyCode::U, KeyCode::VK_NONE</autogen>
+
+<!-- 下段R 091201,1211 -->
+  <!-- N to す ず わ -->
+	<autogen>--KeyToKey-- KeyCode::N, ModifierFlag::SHIFT_L, KeyCode::R, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::N, ModifierFlag::SHIFT_R, KeyCode::KEY_0, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::N, ModifierFlag::NONE,    KeyCode::R, KeyCode::VK_NONE</autogen>
+  <!-- M to つ づ ぃ -->
+	<autogen>--KeyToKey-- KeyCode::M, ModifierFlag::SHIFT_L, KeyCode::Z, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::M, ModifierFlag::SHIFT_R, KeyCode::E, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::M, ModifierFlag::NONE,    KeyCode::Z, KeyCode::VK_NONE</autogen>
+  <!-- , to 、(読点),(コンマ) ぁ -->
+	<autogen>--KeyToKey-- KeyCode::COMMA, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::COMMA</autogen>
+	<autogen>--KeyToKey-- KeyCode::COMMA, ModifierFlag::SHIFT_R, KeyCode::KEY_3, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::COMMA, ModifierFlag::NONE,    KeyCode::COMMA, VK_SHIFT, KeyCode::VK_NONE</autogen>
+  <!-- .(Dot) to 。(句点) .(ドット) ゜(半濁音記号） -->
+	<autogen>--KeyToKey-- KeyCode::DOT, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::DOT</autogen>
+	<autogen>--KeyToKey-- KeyCode::DOT, ModifierFlag::SHIFT_R, KeyCode::JIS_HanDAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::DOT, ModifierFlag::NONE,    KeyCode::DOT, VK_SHIFT, KeyCode::VK_NONE</autogen>
+
+  <!-- Slash to っ ゎ ぅ -->
+<block><!-- /+ShiftL to ヮ -->
+			<!-- 10.1.31 blockのネストでまとめる。 -->
+  <inputmodedetail_only>INPUTMODE_DETAIL_JAPANESE_KATAKANA</inputmodedetail_only>
+	<autogen>--KeyToKey-- KeyCode::SLASH, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_2,VK_SHIFT, KeyCode::VK_NONE</autogen>
+</block>
+<block><!-- /+ShiftL to ゎ -->
+    <inputmodedetail_only>INPUTMODE_DETAIL_JAPANESE, INPUTMODE_DETAIL_JAPANESE_HIRAGANA</inputmodedetail_only>
+	<autogen>--KeyToKey-- KeyCode::SLASH, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_2, KeyCode::VK_NONE</autogen>
+	<!-- 10.1.22 正しい「かわせみ」に合わせて、ROMANへのモード一時変更はしない。 -->
+</block>
+	<autogen>--KeyToKey-- KeyCode::SLASH, ModifierFlag::SHIFT_R, KeyCode::KEY_4, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::SLASH, ModifierFlag::NONE,    KeyCode::Z,     VK_SHIFT, KeyCode::VK_NONE</autogen>
+
+</block>

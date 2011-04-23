@@ -1,0 +1,163 @@
+<!-- 10.2.13 SandSで逆変換にするためシフトRを追加 -->
+<!-- 10.2.16 連打対策の新方式は、このファイルではKeyCode::VK_JIS_TEMPORARY_RESTOREを削除しない。SandSのスペースなので多用するキーだし、元に戻った方がいいので。 -->
+<!-- 11.1.6 nameタグで日本語を使用する。 -->
+<!-- 11.1.8 自作していたexternal_sysctl_notタグをconfig_notに変更。identifierで指定する名前をそのまま参照するようになったので分かりやすくなった。 -->
+<!-- 11.1.10 ModifierHoldingKeyToKey(ver6.8.0で廃止)をHoldingKeyToKeyに修正して、使いやすくなった。 -->
+<!-- 2011.01.10(月)遅延が起きるので、自ビルドまでSandSで, KeyCode::VK_JIS_TEMPORARY_RESTOREを一時的に外す｡ -->
+<!-- 2011.01.24(月) vk.ignore_jis_temporary_restoreを追加し、VK_JIS_TEMPORARY_RESTORE指定を無視を含めて、その指定なしでの一連の改造の有無を切り替えれるようにする。 -->
+<!-- 2011.02.04(金) vk.ignore_jis_temporary_restoreを削除し、checkbox.xmlのgeneralに移動。 -->
+<!-- 2011.02.23(水) remap.use_shortcut_IM(Use short-cut of IM change)を削除。 -->
+<item>
+  <name>general</name>
+  <list>
+        <item>
+          <name>Shift +Option_L to EISUU/KANA/ Shift_R + Q to KATAKANA + Option::NOREPEAT </name><!-- 2011.03.28(月) -->
+          <appendix> 正式採用</appendix>
+          <identifier>remap.severe_test104</identifier>
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, VK_COMMAND, KeyCode::SHIFT_L, VK_COMMAND, KeyCode::JIS_EISUU, ModifierFlag::NONE, Option::NOREPEAT</autogen>
+		  <autogen>--KeyToKey-- KeyCode::OPTION_L, ModifierFlag::SHIFT_L, KeyCode::JIS_EISUU, ModifierFlag::NONE, Option::NOREPEAT</autogen>
+		  <autogen>--KeyToKey-- KeyCode::OPTION_L, ModifierFlag::SHIFT_R, KeyCode::JIS_KANA,  ModifierFlag::NONE, Option::NOREPEAT</autogen>
+		  <autogen>--KeyToKey-- KeyCode::Q,        ModifierFlag::SHIFT_R, KeyCode::JIS_KANA,  VK_SHIFT, Option::NOREPEAT</autogen>
+        </item>
+
+        <item>
+          <name>Option_R-ArrowUpDn to PageUp/Down Key</name><!-- 09.11.10 Haci -->
+          <appendix>(when you hold CURSOR_UP/DOWN, send Home/End)</appendix>
+          <identifier>remap.optionR_arrowUpDn2pageUpDown_Holding_optionR_to_HomeEnd</identifier>
+          <autogen>--HoldingKeyToKey-- KeyCode::CURSOR_UP,   ModifierFlag::OPTION_R, KeyCode::PAGEUP,   KeyCode::VK_NONE,  KeyCode::HOME</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_R, KeyCode::PAGEDOWN, KeyCode::VK_NONE,  KeyCode::END</autogen>
+                      <!-- 2011.01.9 従来と違って、Optin_Rを押しながら、矢印キー単打でPageUp,Downで矢印キーを長押しでHome,End。こっちの方が使いやすいね、確かに。 -->
+        </item>
+
+
+        <item><!-- 2011.01.10 Haci デフォルトのCommand+上下矢印はHome,Endライクに動作して使い難いので、単打ではPageUp/DOWNにして、矢印キー長押しでデフォルトと同じにした。  -->
+        	 <!--             結果的に、上記のOption+上下矢印キーと同じ｡でも、Home,Endの動きはなぜかスクロールバーが段階的に移動するのはMac版ソフト、特にエディタ系のバグ? -->
+          <name>Command_L+arrow_UP to PageUp</name><!-- 08.7.16 Haci -->
+          <appendix>(when you hold CURSOR_UP, send Command_L+arrow_UP)</appendix>
+          <identifier>remap.commandLlong_arrowUp2pageup</identifier>
+          <autogen>--HoldingKeyToKey-- KeyCode::CURSOR_UP,   ModifierFlag::COMMAND_L,  KeyCode::PAGEUP,    KeyCode::VK_NONE,  KeyCode::CURSOR_UP,   ModifierFlag::COMMAND_L</autogen>
+        </item>
+        <item>
+          <name>Command_L+arrow_DOWN to PageDown</name><!-- 08.7.16 Haci -->
+          <appendix>(when you hold CURSOR_DOWN, send Command_L+arrow_DOWN)</appendix>
+          <identifier>remap.commandLlong_arrowDn2pagedown</identifier>
+          <autogen>--HoldingKeyToKey-- KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_L,  KeyCode::PAGEDOWN,  KeyCode::VK_NONE,  KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_L</autogen>
+        </item>
+
+        <item>
+          <name>Command_R+arrow_UP to PageUp</name><!-- 08.7.16 Haci -->
+          <appendix>(when you hold CURSOR_UP, send Command_R+arrow_UP)</appendix>
+          <identifier>remap.commandRlong_arrowUp2pageup</identifier>
+          <autogen>--HoldingKeyToKey-- KeyCode::CURSOR_UP,   ModifierFlag::COMMAND_R,  KeyCode::PAGEUP,    KeyCode::VK_NONE,  KeyCode::CURSOR_UP,   ModifierFlag::COMMAND_R</autogen>
+        </item>
+        <item>
+          <name>Command_R+arrow_DOWN to PageDown</name><!-- 08.7.16 Haci -->
+          <appendix>(when you hold CURSOR_DOWN, send Command_R+arrow_DOWN)</appendix>
+          <identifier>remap.commandRlong_arrowDn2pagedown</identifier>
+          <autogen>--HoldingKeyToKey-- KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_R,  KeyCode::PAGEDOWN,  KeyCode::VK_NONE,  KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_R</autogen>
+        </item>
+
+
+          <!-- 09.11.5 Haci remap.holding_command_to_f1_f12 -->
+        <item>
+          <name>Command(Holding)+num to F1-F12</name><!-- 09.11.5 Haci -->
+          <identifier>remap.holding_command_to_f1_f12</identifier>
+          <!-- 2011.01.10(月) 従来はプログラムを追加していたが、以下をテスト的に追加｡但し、数値をリマップ後の値にならないので、少し使い難い(不完全)｡  -->
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_1, VK_COMMAND, KeyCode::KEY_1, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F1</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_2, VK_COMMAND, KeyCode::KEY_2, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F2</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_3, VK_COMMAND, KeyCode::KEY_3, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F3</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_4, VK_COMMAND, KeyCode::KEY_4, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F4</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_5, VK_COMMAND, KeyCode::KEY_5, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F5</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_6, VK_COMMAND, KeyCode::KEY_6, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F6</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_7, VK_COMMAND, KeyCode::KEY_7, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F7</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_8, VK_COMMAND, KeyCode::KEY_8, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F8</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_9, VK_COMMAND, KeyCode::KEY_1, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F1</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_0, VK_COMMAND, KeyCode::KEY_0, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F10</autogen>
+
+        </item>
+
+          <!-- 2011.02.21(月)pm04:37 Haci  -->
+        <item>
+          <name>Option_L(Q-key)+IKJL to Up/Down/Left/Right</name>
+          <appendix> Diamond Cursor(右利き用)</appendix>
+          <identifier>option.my_cursor_optionL(Q-key)_jkil</identifier>
+          <autogen>--KeyToKey-- KeyCode::I, ModifierFlag::OPTION_L, KeyCode::CURSOR_UP</autogen>
+          <autogen>--KeyToKey-- KeyCode::K, ModifierFlag::OPTION_L, KeyCode::CURSOR_DOWN</autogen>
+          <autogen>--KeyToKey-- KeyCode::J, ModifierFlag::OPTION_L, KeyCode::CURSOR_LEFT</autogen>
+          <autogen>--KeyToKey-- KeyCode::L, ModifierFlag::OPTION_L, KeyCode::CURSOR_RIGHT</autogen>
+        </item>
+
+
+        <item>
+          <name>Command/Control+Shift_L to Option+V/G(KAWASEMI: RuigiGo/KanrenMoji Henkan)</name><!-- Haci 09.12.4 Haci koko707 -->
+          <identifier>remap.jis_commandORcontrolShiftL2option_V_G</identifier>
+          <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L,VK_COMMAND, KeyCode::SHIFT_L,VK_COMMAND, KeyCode::V,ModifierFlag::OPTION_R</autogen><!-- Ruigigo Henkan : MiKautei Joutai -->
+          <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L,VK_CONTROL, KeyCode::SHIFT_L,VK_CONTROL, KeyCode::G,ModifierFlag::OPTION_R</autogen><!-- KanrenMoji Henkan : MiKautei Joutai-->
+          											<!-- 09.12.6 KeyToKey dewa repeat shitesimau -->
+          											<!-- 09.12.9 Redo no shortcut to onaji nanode dame nanode,Redo wa betsu no key ni settei sureba yoi. -->
+          											<!-- 09.12.9 change keyTokey to KeyOverlaidModifier without repeat -->
+							<!-- 09.12.9 6.2.16 de wa kano item no ichiban saigo demo yokattaga, 6.2.27 dewa remap.shiftL2shiftL_space no ato ni haichi suruto, space ni natta ato de ctrl+space to natte shimau. -->
+        </item>
+        <item>
+          <name>Command/Control+Shift_R to Option+F/T(KAWASEMI: WaEi/KakuteiRireki Henkan)</name><!--  09.12.4 Haci koko705 -->
+          <identifier>remap.jis_commandORcontrolShiftR2option_F_T</identifier>
+          <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R,VK_COMMAND, KeyCode::SHIFT_R,VK_COMMAND, KeyCode::F,ModifierFlag::OPTION_R</autogen><!-- WaEi Henkan : MiKautei Joutai -->
+          <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R,VK_CONTROL, KeyCode::SHIFT_R,VK_CONTROL, KeyCode::T,ModifierFlag::OPTION_R</autogen><!-- Kakutei Rireki Henkan: After Kakutei -->
+          											<!-- 09.12.6 KeyToKey dewa repeat shitesimau -->
+          											<!-- 09.12.9 Redo no shortcut to onaji nanode dame nanode,Redo wa betsu no key ni settei sureba yoi. -->
+          											<!-- 09.12.9 change keyTokey to KeyOverlaidModifier without repeat -->
+							<!-- 09.12.9 6.2.16 de wa kano item no ichiban saigo demo yokattaga, 6.2.27 dewa remap.shiftR2shiftR_space no ato ni haichi suruto, space ni natta ato de ctrl+space to natte shimau. -->
+							<!-- 09.12.23 remap.shf2shf_space__shfLshfRtoshfspace__shfRshfLtospace de shiftR mo matometa node sono mae ni nai to dousa shinai node kokoni idou. -->
+        </item>
+
+
+        <item>
+          <name>SandS (半角Space)[キーリピート無し] (左利き用)</name><!-- 08.12.22 Haci: for left-handed persons -->
+          <appendix>SSandS (Shift_L+R to Shift+Han_Space, Shift_R+L to Zen_Space)+ [KeyRepeat]</appendix>
+          <config_not>remap.shf2shf_space__shfRshfLtoshfspace__shfLshfRtospace</config_not><!-- 11.1.8 -->
+          <identifier>remap.shf2shf_space__shfLshfRtoshfspace__shfRshfLtospace</identifier>
+		  <autogen>--KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::SPACE, ModifierFlag::SHIFT_L</autogen><!-- 半角スペース -->
+		  <autogen>--KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- 全角スペース: 09.12.25 repeat tsuki no Zenkaku space to Hankaku space wo tsukaiwakeru kotoga dekiru node.-->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, KeyCode::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, ModifierFlag::SHIFT_L</autogen><!-- 半角スペース --><!-- 2011.02.20(日)モード変更指定を外した。ModifierFlag::SHIFT_Lの指定を忘れていた｡ -->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, KeyCode::SHIFT_L, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- 半角スペース -->
+        </item>
+
+        <item>
+          <name>SandS (半角Space)[キーリピート無し] (右利き用)</name><!-- 08.12.22 Haci: for right-handed persons -->
+          <appendix>SSandS (Shift_R+L to Shift+Han_Space, Shift_L+Shift_R to Zen_Space)+ [KeyRepeat]</appendix>
+          <identifier>remap.shf2shf_space__shfRshfLtoshfspace__shfLshfRtospace</identifier>
+		  <autogen>--KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Zenkaku space 09.12.25 -->
+		  <autogen>--KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::SPACE, ModifierFlag::SHIFT_R</autogen><!-- 半角スペース: なぜかシフトケースのスペースは英字モードに変えなくても半角になる。 -->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, KeyCode::SHIFT_L, KeyCode::SPACE, ModifierFlag::SHIFT_R</autogen><!-- 半角スペース: toKeyがシフトケースの場合は英字モードに変えなくても半角になる。 --><!-- 10.2.13 逆変換にするためシフトRを追加 -->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, KeyCode::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- 半角space  -->
+        </item>
+
+
+       <item>
+          <name>Command/Control+SPACE to Option+F/T(かわせみ: 和英/確定履歴 変換)</name><!--  09.12.4 Haci koko705 -->
+          <identifier>remap.jis_commandORcontrolSpace2option_F_T</identifier>
+          <autogen>--KeyOverlaidModifier-- KeyCode::SPACE,VK_COMMAND, KeyCode::SPACE,VK_COMMAND, KeyCode::F,ModifierFlag::OPTION_R</autogen><!-- WaEi Henkan : MiKautei Joutai -->
+          <autogen>--KeyOverlaidModifier-- KeyCode::SPACE,VK_CONTROL, KeyCode::SPACE,VK_CONTROL, KeyCode::T,ModifierFlag::OPTION_R</autogen><!-- Kakutei Rireki Henkan: After Kakutei -->
+          											<!-- 09.12.6 KeyToKey dewa repeat shitesimau -->
+          											<!-- 09.12.9 Redo no shortcut to onaji nanode dame nanode,Redo wa betsu no key ni settei sureba yoi. -->
+          											<!-- 09.12.9 change keyTokey to KeyOverlaidModifier without repeat -->
+							<!-- 09.12.9 6.2.16 de wa kano item no ichiban saigo demo yokattaga, 6.2.27 dewa remap.shiftR2shiftR_space no ato ni haichi suruto, space ni natta ato de ctrl+space to natte shimau.ナンだ -->
+        </item>
+
+
+        <item><!--  2011.01.11(火) テスト -->
+          <name>Simultaneous Key Presses [D+F] to Return</name>
+          <identifier>remap.simultaneouskeypresses_df_to_return</identifier>
+          <autogen>--SimultaneousKeyPresses-- KeyCode::D, KeyCode::F, KeyCode::RETURN</autogen>
+        </item>
+
+        <item><!--  2011.01.11(火) テスト -->
+          <name>Simultaneous Key Presses [J+K/K+L] to Undo/Redo</name>
+          <identifier>remap.simultaneouskeypresses_jk_to_Undo_redo</identifier>
+          <autogen>--SimultaneousKeyPresses-- KeyCode::J, KeyCode::K, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
+          <autogen>--SimultaneousKeyPresses-- KeyCode::K, KeyCode::L, KeyCode::Z, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+        </item>
+
+
+  </list>
+</item>

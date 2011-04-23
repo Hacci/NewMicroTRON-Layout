@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <array>
+    <string>repeat.initial_wait</string>
+    <string>repeat.wait</string>
+    <string>repeat.consumer_initial_wait</string>
+    <string>repeat.consumer_wait</string>
+    <string>parameter.keyoverlaidmodifier_timeout</string>
+    <string>repeat.keyoverlaidmodifier_initial_wait</string>
+    <string>parameter.simultaneouskeypresses_delay</string>
+    <string>parameter.simultaneouskeypresses_pointingbutton_delay</string>
+    <string>parameter.doublepressmodifier_threshold</string>
+    <string>parameter.holdingkeytokey_wait</string>
+    <string>pointing.relative2scroll_rate</string>
+    <string>parameter.statuswindow_alpha_font</string>
+    <string>parameter.statuswindow_alpha_background</string>
+    <string>parameter.statuswindow_posx_adjustment</string>
+    <string>parameter.statuswindow_posy_adjustment</string>
+    <string>parameter.statuswindow_fadeout_duration</string>
+    <string>general.dont_remap_internal</string>
+    <string>general.dont_remap_external</string>
+    <string>general.dont_remap_apple_keyboard</string>
+    <string>general.dont_remap_apple_pointing</string>
+    <string>general.dont_remap_thirdvendor_keyboard</string>
+    <string>general.dont_remap_thirdvendor_pointing</string>
+    <string>general.capslock_led_hack</string>
+    <string>general.passthrough_capslock_led_status</string>
+    <string>general.hide_statusmessage</string>
+    <string>general.show_sticky_modifier_status</string>
+    <string>general.lazy_modifiers_with_mouse_event</string>
+    <string>general.disable_numpad_hack</string>
+    <string>general.dont_remap_logitech_cordless_presenter</string>
+    <string>option.pointing_enable_scrollwheel_fixation</string>
+    <string>option.pointing_disable_horizontal_scroll</string>
+    <string>option.pointing_disable_vertical_scroll</string>
+    <string>option.pointing_disable_momentum_scroll</string>
+  </array>
+</plist>

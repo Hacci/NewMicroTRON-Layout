@@ -1,0 +1,48 @@
+<!-- UTF-8 -->
+<!-- μTRONキーボード用のμTRON配列/JISモード -->
+<!-- 09.12.28 6.2.58 or later Haci -->
+<!-- 09.11.25 autogen は1行で記述すること。 -->
+<!-- 09.12.30 6.2.60から日本語をコメントで書けるようになった。 -->
+<!-- 10.1.17 ver6.3.14: includeのネストができるようになったので、まとめた。 -->
+
+            	<item>
+              	  <name>Use microTRON KB [42]</name>
+              		<list>
+
+				        <item>
+				          <name>(TRON mode) microTRON Layout</name>
+				          <appendix>(Hiragana mode,Kana Input)</appendix>
+				          <appendix>(Function,number,Kigou etc.)</appendix>
+				          <sysctl>remap.microTRONKB_mTRON</sysctl>
+				          <keyboardtype_only>JIS_PC_USB_KEYBOARD</keyboardtype_only>
+				          <!-- #include "include/microTRONKB_mTRON_Dvorak_common.xml" -->
+				          		<!-- 09.12.28 -->
+				          <!-- #include "include/microTRONKB_mTRON.xml" -->
+				          		<!-- 09.12.28 -->
+
+				        </item>
+
+				        <item>
+				          <name>(TRON mode) Dvorak Layout</name><!-- Haci 09.12.2 koko800 -->
+				          <appendix>(Function,number,Kigou etc.)</appendix>
+				          <sysctl>remap.microTRONKB_Dvorak</sysctl>
+				          <keyboardtype_only>JIS_PC_USB_KEYBOARD</keyboardtype_only>
+				          <!-- #include "include/microTRONKB_mTRON_Dvorak_common.xml" -->
+				          		<!-- 09.12.28 -->
+				          <!-- #include "include/microTRONKB_Dvorak.xml" -->
+				          		<!-- 09.12.28 -->
+				        </item>
+
+				        <item>
+				          <name>(JIS mode) JIS Layout</name><!-- Haci 09.11.25 -->
+
+				          <sysctl>remap.microTRONKB_jismode</sysctl>
+				          <external_sysctl_not>config.remap_microTRONKB_mTRON, config.remap_microTRONKB_Dvorak</external_sysctl_not><!-- 09.12.3 -->
+				          <keyboardtype_only>JIS_PC_USB_KEYBOARD</keyboardtype_only>
+						  <!-- CyuDan_L -->
+				          <autogen>--KeyToKey-- KeyCode::PC_APPLICATION, KeyCode::OPTION_L</autogen><!-- Menu to OptionL -->
+				        </item>
+
+              		</list>
+            	</item>
+

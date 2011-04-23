@@ -1,0 +1,89 @@
+<!-- UTF-8 -->
+<!-- 09.12.28 6.2.58 or later Haci -->
+<!-- microTRON_KBをベースにしてある。例えば、HHKBなら異なるキーだけをこれより前に記述すればいい。-->
+<!-- 09.12.30 6.2.60から日本語をコメントで書けるようになった。 -->
+<!-- 10.2.16 連打対策の新方式のため、KeyCode::VK_JIS_TEMPORARY_RESTOREを全て(3ヶ所)削除。 -->
+  <!-- 10.2.24 英字モードのときに、一時的にひらがなモードに変えるキーを打つと、通常の英語文字キーがひらがなになってしまうという新たなバグは、英字モードの時の記述でも5段のKeyToKeyを必ず通るようにするためのKeyCode::VK_NONEを追加していなかったから。 -->
+
+<!-- 上段L -->
+  <!-- 半角/全角 to ; ^ : -->
+	<autogen>--KeyToKey-- KeyCode::JIS_HAN_ZEN, ModifierFlag::SHIFT_L, KeyCode::JIS_CARET</autogen>
+	<autogen>--KeyToKey-- KeyCode::JIS_HAN_ZEN, ModifierFlag::SHIFT_R, KeyCode::JIS_COLON</autogen>
+	<autogen>--KeyToKey-- KeyCode::JIS_HAN_ZEN, KeyCode::SEMICOLON</autogen>
+  <!-- Q : commonで設定 -->
+  <!-- W to , none & -->
+	<autogen>--KeyToKey-- KeyCode::W, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::W, ModifierFlag::SHIFT_R, KeyCode::KEY_6,VK_SHIFT</autogen>
+	<autogen>--KeyToKey-- KeyCode::W, KeyCode::COMMA</autogen>
+  <!-- E to .(Dot) ・(中点) _ -->
+	<autogen>--KeyToKey-- KeyCode::E, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::SLASH,VK_SHIFT</autogen>
+	<autogen>--KeyToKey-- KeyCode::E, ModifierFlag::SHIFT_R, KeyCode::JIS_UNDERSCORE,VK_SHIFT</autogen>
+	<autogen>--KeyToKey-- KeyCode::E, KeyCode::DOT</autogen>
+  <!-- R to P -->
+	<autogen>--KeyToKey-- KeyCode::R, KeyCode::P</autogen>
+  <!-- T to Y -->
+	<autogen>--KeyToKey-- KeyCode::T, KeyCode::Y</autogen>
+
+<!-- 上段R -->
+  <!-- Y to F -->
+	<autogen>--KeyToKey-- KeyCode::Y, 	 KeyCode::F</autogen>
+  <!-- U to G -->
+	<autogen>--KeyToKey-- KeyCode::U, 	 KeyCode::G</autogen>
+  <!-- I to C -->
+	<autogen>--KeyToKey-- KeyCode::I, 	 KeyCode::C</autogen>
+  <!-- O to R -->
+	<autogen>--KeyToKey-- KeyCode::O, 	 KeyCode::R</autogen>
+  <!-- P :commonで設定 -->
+  <!-- @ to L -->
+	<autogen>--KeyToKey-- KeyCode::JIS_AT, KeyCode::L</autogen>
+
+<!-- ================================================= -->
+<!-- 中段L -->
+  <!-- A そのまま -->
+  <!-- S to O -->
+	<autogen>--KeyToKey-- KeyCode::S, KeyCode::O</autogen>
+  <!-- D to E -->
+	<autogen>--KeyToKey-- KeyCode::D, KeyCode::E</autogen>
+  <!-- F to U -->
+	<autogen>--KeyToKey-- KeyCode::F, KeyCode::U</autogen>
+  <!-- G to I -->
+	<autogen>--KeyToKey-- KeyCode::G, KeyCode::I</autogen>
+
+<!-- 中段R -->
+  <!-- H to D -->
+	<autogen>--KeyToKey-- KeyCode::H, 		KeyCode::D</autogen>
+  <!-- J to H -->
+	<autogen>--KeyToKey-- KeyCode::J, 		KeyCode::H</autogen>
+  <!-- K to T -->
+	<autogen>--KeyToKey-- KeyCode::K, 		KeyCode::T, KeyCode::VK_NONE</autogen>
+											<!-- 10.2.8 test: 5段のKeyToKeyを実行させる為にVK_NONEを追加。t「う -->
+  <!-- L to N -->
+	<autogen>--KeyToKey-- KeyCode::L, 		KeyCode::N</autogen>
+  <!-- ; to S -->
+	<autogen>--KeyToKey-- KeyCode::SEMICOLON, KeyCode::S</autogen>
+
+<!-- ================================================= -->
+<!-- 下段L -->
+  <!-- Z to prime degree double-prime -->
+	<autogen>--KeyToKey-- KeyCode::Z, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_8</autogen>
+	<autogen>--KeyToKey-- KeyCode::Z, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_7,VK_SHIFT</autogen>
+	<autogen>--KeyToKey-- KeyCode::Z, KeyCode::KEYPAD_7</autogen>
+  <!-- X to Q -->
+	<autogen>--KeyToKey-- KeyCode::X, KeyCode::Q</autogen>
+  <!-- C to J -->
+	<autogen>--KeyToKey-- KeyCode::C, KeyCode::J</autogen>
+  <!-- V to K -->
+	<autogen>--KeyToKey-- KeyCode::V, KeyCode::K</autogen>
+  <!-- B to X -->
+	<autogen>--KeyToKey-- KeyCode::B, KeyCode::X</autogen>
+
+<!-- 下段R -->
+  <!-- N to B -->
+	<autogen>--KeyToKey-- KeyCode::N, 	KeyCode::B</autogen>
+  <!-- M そのまま -->
+  <!-- COMMA to W -->
+	<autogen>--KeyToKey-- KeyCode::COMMA ,KeyCode::W</autogen>
+  <!-- DOT to V -->
+	<autogen>--KeyToKey-- KeyCode::DOT, 	KeyCode::V</autogen>
+  <!-- / to Z -->
+	<autogen>--KeyToKey-- KeyCode::SLASH, KeyCode::Z</autogen>

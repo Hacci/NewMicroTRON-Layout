@@ -1,0 +1,139 @@
+// !$*UTF8*$!
+{
+	08FB7793FE84155DC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 5BA91BE712D98FD600151525 /* Untitled */;
+		activeTarget = 8DD76F620486A84900D96B5E /* Untitled */;
+		addToTargets = (
+			8DD76F620486A84900D96B5E /* Untitled */,
+		);
+		codeSenseManager = 5BA91BF112D98FF400151525 /* Code sense */;
+		executables = (
+			5BA91BE712D98FD600151525 /* Untitled */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					342,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 316248022;
+			PBXWorkspaceStateSaveDate = 316248022;
+		};
+		perUserProjectItems = {
+			5BA91FB912D992E300151525 /* PBXTextBookmark */ = 5BA91FB912D992E300151525 /* PBXTextBookmark */;
+			5BA91FBA12D992E300151525 /* XCBuildMessageTextBookmark */ = 5BA91FBA12D992E300151525 /* XCBuildMessageTextBookmark */;
+			5BA91FBC12D992E400151525 /* PBXTextBookmark */ = 5BA91FBC12D992E400151525 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 5BA91BF012D98FF400151525 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	5BA91BE712D98FD600151525 /* Untitled */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = Untitled;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	5BA91BF012D98FF400151525 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	5BA91BF112D98FF400151525 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	5BA91C5012D9913000151525 /* include.bridge_essential_config_index.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {441, 455}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 0}";
+		};
+	};
+	5BA91C7512D9913100151525 /* 7.0.30 */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {520, 244}}";
+			sepNavSelRange = "{1, 0}";
+			sepNavVisRange = "{0, 1}";
+		};
+	};
+	5BA91FB912D992E300151525 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5BA91C7512D9913100151525 /* 7.0.30 */;
+		name = "7.0.30: 1";
+		rLen = 0;
+		rLoc = 1;
+		rType = 0;
+		vrLen = 1;
+		vrLoc = 0;
+	};
+	5BA91FBA12D992E300151525 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Expected unqualified-id before numeric constant";
+		fRef = 5BA91C5012D9913000151525 /* include.bridge_essential_config_index.cpp */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 0;
+		rType = 1;
+	};
+	5BA91FBC12D992E400151525 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5BA91C5012D9913000151525 /* include.bridge_essential_config_index.cpp */;
+		name = "include.bridge_essential_config_index.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	8DD76F620486A84900D96B5E /* Untitled */ = {
+		activeExec = 0;
+		executables = (
+			5BA91BE712D98FD600151525 /* Untitled */,
+		);
+	};
+}

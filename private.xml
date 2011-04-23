@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- 2011.01.08 Haci-->
+<root>
+  <list>
+            <item>
+              <name>Full Remap for compact KB</name><!-- 09.11.12 Haci-->
+              <list>
+            	<!-- #include "include/general.xml" --><!-- 10.1.17 -->
+            	<!-- #include "include/microTRONKB_pack.xml" --><!-- 10.1.17 -->
+
+              </list>
+            </item>
+  </list>
+</root>

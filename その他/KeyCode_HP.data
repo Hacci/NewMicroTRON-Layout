@@ -1,0 +1,327 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="icon" href="/KeyRemap4MacBook/index.cgi/static/hgicon.png" type="image/png">
+<meta name="robots" content="index, nofollow" />
+<link rel="stylesheet" href="/KeyRemap4MacBook/index.cgi/static/style.css" type="text/css" />
+
+<title>KeyRemap4MacBook:src/core/bridge/keycode/data/KeyCode.data</title>
+</head>
+<body>
+
+<div class="buttons">
+<a href="/KeyRemap4MacBook/index.cgi/log/3874">changelog</a>
+<a href="/KeyRemap4MacBook/index.cgi/shortlog/3874">shortlog</a>
+<a href="/KeyRemap4MacBook/index.cgi/tags">tags</a>
+<a href="/KeyRemap4MacBook/index.cgi/rev/b5dc00c10b14">changeset</a>
+<a href="/KeyRemap4MacBook/index.cgi/file/b5dc00c10b14/src/core/bridge/keycode/data/">files</a>
+<a href="/KeyRemap4MacBook/index.cgi/log/b5dc00c10b14/src/core/bridge/keycode/data/KeyCode.data">revisions</a>
+<a href="/KeyRemap4MacBook/index.cgi/annotate/b5dc00c10b14/src/core/bridge/keycode/data/KeyCode.data">annotate</a>
+<a href="/KeyRemap4MacBook/index.cgi/raw-file/b5dc00c10b14/src/core/bridge/keycode/data/KeyCode.data">raw</a>
+</div>
+
+<h2>src/core/bridge/keycode/data/KeyCode.data</h2>
+
+<table>
+<tr>
+ <td class="metatag">changeset 3874:</td>
+ <td><a href="/KeyRemap4MacBook/index.cgi/rev/b5dc00c10b14">b5dc00c10b14</a></td></tr>
+<tr><td class="metatag">parent:</td><td><a href="/KeyRemap4MacBook/index.cgi/file/305b743aa9a7/src/core/bridge/keycode/data/KeyCode.data">305b743aa9a7</a></td></tr>
+
+<tr>
+ <td class="metatag">author:</td>
+ <td>&#116;&#101;&#107;&#101;&#122;&#111;</td></tr>
+<tr>
+ <td class="metatag">date:</td>
+ <td>Thu Dec 30 21:31:32 2010 +0900 (43 hours ago)</td></tr>
+<tr>
+ <td class="metatag">permissions:</td>
+ <td>-rw-r--r--</td></tr>
+<tr>
+  <td class="metatag">description:</td>
+  <td>version 7.0.21</td>
+</tr>
+</table>
+
+<pre>
+<div class="parity0"><a class="lineno" href="#l1" id="l1">     1</a>RETURN 36
+</div><div class="parity1"><a class="lineno" href="#l2" id="l2">     2</a>BACKSLASH 42
+</div><div class="parity0"><a class="lineno" href="#l3" id="l3">     3</a>TAB 48
+</div><div class="parity1"><a class="lineno" href="#l4" id="l4">     4</a>SPACE 49
+</div><div class="parity0"><a class="lineno" href="#l5" id="l5">     5</a>BACKQUOTE 50
+</div><div class="parity1"><a class="lineno" href="#l6" id="l6">     6</a>DELETE 51
+</div><div class="parity0"><a class="lineno" href="#l7" id="l7">     7</a>ENTER_POWERBOOK 52
+</div><div class="parity1"><a class="lineno" href="#l8" id="l8">     8</a>ESCAPE 53
+</div><div class="parity0"><a class="lineno" href="#l9" id="l9">     9</a>COMMAND_R 54
+</div><div class="parity1"><a class="lineno" href="#l10" id="l10">    10</a>COMMAND_L 55
+</div><div class="parity0"><a class="lineno" href="#l11" id="l11">    11</a>SHIFT_L 56
+</div><div class="parity1"><a class="lineno" href="#l12" id="l12">    12</a>CAPSLOCK 57
+</div><div class="parity0"><a class="lineno" href="#l13" id="l13">    13</a>OPTION_L 58
+</div><div class="parity1"><a class="lineno" href="#l14" id="l14">    14</a>CONTROL_L 59
+</div><div class="parity0"><a class="lineno" href="#l15" id="l15">    15</a>SHIFT_R 60
+</div><div class="parity1"><a class="lineno" href="#l16" id="l16">    16</a>OPTION_R 61
+</div><div class="parity0"><a class="lineno" href="#l17" id="l17">    17</a>CONTROL_R 62
+</div><div class="parity1"><a class="lineno" href="#l18" id="l18">    18</a>FN 63
+</div><div class="parity0"><a class="lineno" href="#l19" id="l19">    19</a>ENTER 76
+</div><div class="parity1"><a class="lineno" href="#l20" id="l20">    20</a>
+</div><div class="parity0"><a class="lineno" href="#l21" id="l21">    21</a>KEYPAD_DOT 65
+</div><div class="parity1"><a class="lineno" href="#l22" id="l22">    22</a>KEYPAD_MULTIPLY 67
+</div><div class="parity0"><a class="lineno" href="#l23" id="l23">    23</a>KEYPAD_PLUS 69
+</div><div class="parity1"><a class="lineno" href="#l24" id="l24">    24</a>KEYPAD_CLEAR 71
+</div><div class="parity0"><a class="lineno" href="#l25" id="l25">    25</a>KEYPAD_SLASH 75
+</div><div class="parity1"><a class="lineno" href="#l26" id="l26">    26</a>KEYPAD_MINUS 78
+</div><div class="parity0"><a class="lineno" href="#l27" id="l27">    27</a>KEYPAD_EQUAL 81
+</div><div class="parity1"><a class="lineno" href="#l28" id="l28">    28</a>KEYPAD_COMMA 95
+</div><div class="parity0"><a class="lineno" href="#l29" id="l29">    29</a>KEYPAD_0 82
+</div><div class="parity1"><a class="lineno" href="#l30" id="l30">    30</a>KEYPAD_1 83
+</div><div class="parity0"><a class="lineno" href="#l31" id="l31">    31</a>KEYPAD_2 84
+</div><div class="parity1"><a class="lineno" href="#l32" id="l32">    32</a>KEYPAD_3 85
+</div><div class="parity0"><a class="lineno" href="#l33" id="l33">    33</a>KEYPAD_4 86
+</div><div class="parity1"><a class="lineno" href="#l34" id="l34">    34</a>KEYPAD_5 87
+</div><div class="parity0"><a class="lineno" href="#l35" id="l35">    35</a>KEYPAD_6 88
+</div><div class="parity1"><a class="lineno" href="#l36" id="l36">    36</a>KEYPAD_7 89
+</div><div class="parity0"><a class="lineno" href="#l37" id="l37">    37</a>KEYPAD_8 91
+</div><div class="parity1"><a class="lineno" href="#l38" id="l38">    38</a>KEYPAD_9 92
+</div><div class="parity0"><a class="lineno" href="#l39" id="l39">    39</a>
+</div><div class="parity1"><a class="lineno" href="#l40" id="l40">    40</a>A 0
+</div><div class="parity0"><a class="lineno" href="#l41" id="l41">    41</a>S 1
+</div><div class="parity1"><a class="lineno" href="#l42" id="l42">    42</a>D 2
+</div><div class="parity0"><a class="lineno" href="#l43" id="l43">    43</a>F 3
+</div><div class="parity1"><a class="lineno" href="#l44" id="l44">    44</a>H 4
+</div><div class="parity0"><a class="lineno" href="#l45" id="l45">    45</a>G 5
+</div><div class="parity1"><a class="lineno" href="#l46" id="l46">    46</a>Z 6
+</div><div class="parity0"><a class="lineno" href="#l47" id="l47">    47</a>X 7
+</div><div class="parity1"><a class="lineno" href="#l48" id="l48">    48</a>C 8
+</div><div class="parity0"><a class="lineno" href="#l49" id="l49">    49</a>V 9
+</div><div class="parity1"><a class="lineno" href="#l50" id="l50">    50</a>B 11
+</div><div class="parity0"><a class="lineno" href="#l51" id="l51">    51</a>Q 12
+</div><div class="parity1"><a class="lineno" href="#l52" id="l52">    52</a>W 13
+</div><div class="parity0"><a class="lineno" href="#l53" id="l53">    53</a>E 14
+</div><div class="parity1"><a class="lineno" href="#l54" id="l54">    54</a>R 15
+</div><div class="parity0"><a class="lineno" href="#l55" id="l55">    55</a>Y 16
+</div><div class="parity1"><a class="lineno" href="#l56" id="l56">    56</a>T 17
+</div><div class="parity0"><a class="lineno" href="#l57" id="l57">    57</a>KEY_1 18
+</div><div class="parity1"><a class="lineno" href="#l58" id="l58">    58</a>KEY_2 19
+</div><div class="parity0"><a class="lineno" href="#l59" id="l59">    59</a>KEY_3 20
+</div><div class="parity1"><a class="lineno" href="#l60" id="l60">    60</a>KEY_4 21
+</div><div class="parity0"><a class="lineno" href="#l61" id="l61">    61</a>KEY_6 22
+</div><div class="parity1"><a class="lineno" href="#l62" id="l62">    62</a>KEY_5 23
+</div><div class="parity0"><a class="lineno" href="#l63" id="l63">    63</a>EQUAL 24
+</div><div class="parity1"><a class="lineno" href="#l64" id="l64">    64</a>KEY_9 25
+</div><div class="parity0"><a class="lineno" href="#l65" id="l65">    65</a>KEY_7 26
+</div><div class="parity1"><a class="lineno" href="#l66" id="l66">    66</a>MINUS 27
+</div><div class="parity0"><a class="lineno" href="#l67" id="l67">    67</a>KEY_8 28
+</div><div class="parity1"><a class="lineno" href="#l68" id="l68">    68</a>KEY_0 29
+</div><div class="parity0"><a class="lineno" href="#l69" id="l69">    69</a>O 31
+</div><div class="parity1"><a class="lineno" href="#l70" id="l70">    70</a>U 32
+</div><div class="parity0"><a class="lineno" href="#l71" id="l71">    71</a>I 34
+</div><div class="parity1"><a class="lineno" href="#l72" id="l72">    72</a>P 35
+</div><div class="parity0"><a class="lineno" href="#l73" id="l73">    73</a>L 37
+</div><div class="parity1"><a class="lineno" href="#l74" id="l74">    74</a>J 38
+</div><div class="parity0"><a class="lineno" href="#l75" id="l75">    75</a>K 40
+</div><div class="parity1"><a class="lineno" href="#l76" id="l76">    76</a>SLASH 44
+</div><div class="parity0"><a class="lineno" href="#l77" id="l77">    77</a>N 45
+</div><div class="parity1"><a class="lineno" href="#l78" id="l78">    78</a>M 46
+</div><div class="parity0"><a class="lineno" href="#l79" id="l79">    79</a>DOT 47
+</div><div class="parity1"><a class="lineno" href="#l80" id="l80">    80</a>
+</div><div class="parity0"><a class="lineno" href="#l81" id="l81">    81</a>SEMICOLON 41
+</div><div class="parity1"><a class="lineno" href="#l82" id="l82">    82</a>COMMA 43
+</div><div class="parity0"><a class="lineno" href="#l83" id="l83">    83</a>BRACKET_LEFT 33
+</div><div class="parity1"><a class="lineno" href="#l84" id="l84">    84</a>BRACKET_RIGHT 30
+</div><div class="parity0"><a class="lineno" href="#l85" id="l85">    85</a>QUOTE 39
+</div><div class="parity1"><a class="lineno" href="#l86" id="l86">    86</a>
+</div><div class="parity0"><a class="lineno" href="#l87" id="l87">    87</a>F1 122
+</div><div class="parity1"><a class="lineno" href="#l88" id="l88">    88</a>F2 120
+</div><div class="parity0"><a class="lineno" href="#l89" id="l89">    89</a>F3 99
+</div><div class="parity1"><a class="lineno" href="#l90" id="l90">    90</a>F4 118
+</div><div class="parity0"><a class="lineno" href="#l91" id="l91">    91</a>F5 96
+</div><div class="parity1"><a class="lineno" href="#l92" id="l92">    92</a>F6 97
+</div><div class="parity0"><a class="lineno" href="#l93" id="l93">    93</a>F7 98
+</div><div class="parity1"><a class="lineno" href="#l94" id="l94">    94</a>F8 100
+</div><div class="parity0"><a class="lineno" href="#l95" id="l95">    95</a>F9 101
+</div><div class="parity1"><a class="lineno" href="#l96" id="l96">    96</a>F10 109
+</div><div class="parity0"><a class="lineno" href="#l97" id="l97">    97</a>F11 103
+</div><div class="parity1"><a class="lineno" href="#l98" id="l98">    98</a>F12 111
+</div><div class="parity0"><a class="lineno" href="#l99" id="l99">    99</a>F13 105
+</div><div class="parity1"><a class="lineno" href="#l100" id="l100">   100</a>F14 107
+</div><div class="parity0"><a class="lineno" href="#l101" id="l101">   101</a>F15 113
+</div><div class="parity1"><a class="lineno" href="#l102" id="l102">   102</a>F16 106
+</div><div class="parity0"><a class="lineno" href="#l103" id="l103">   103</a>F17 64
+</div><div class="parity1"><a class="lineno" href="#l104" id="l104">   104</a>F18 79
+</div><div class="parity0"><a class="lineno" href="#l105" id="l105">   105</a>F19 80
+</div><div class="parity1"><a class="lineno" href="#l106" id="l106">   106</a>
+</div><div class="parity0"><a class="lineno" href="#l107" id="l107">   107</a>PC_KEYPAD_NUMLOCK 71
+</div><div class="parity1"><a class="lineno" href="#l108" id="l108">   108</a>PC_APPLICATION 110
+</div><div class="parity0"><a class="lineno" href="#l109" id="l109">   109</a>PC_PRINTSCREEN 105
+</div><div class="parity1"><a class="lineno" href="#l110" id="l110">   110</a>PC_SCROLLLOCK 107
+</div><div class="parity0"><a class="lineno" href="#l111" id="l111">   111</a>PC_PAUSE 113
+</div><div class="parity1"><a class="lineno" href="#l112" id="l112">   112</a>PC_INSERT 114
+</div><div class="parity0"><a class="lineno" href="#l113" id="l113">   113</a>HELP 114
+</div><div class="parity1"><a class="lineno" href="#l114" id="l114">   114</a>
+</div><div class="parity0"><a class="lineno" href="#l115" id="l115">   115</a>FORWARD_DELETE 117
+</div><div class="parity1"><a class="lineno" href="#l116" id="l116">   116</a>
+</div><div class="parity0"><a class="lineno" href="#l117" id="l117">   117</a>CURSOR_LEFT 123
+</div><div class="parity1"><a class="lineno" href="#l118" id="l118">   118</a>CURSOR_RIGHT 124
+</div><div class="parity0"><a class="lineno" href="#l119" id="l119">   119</a>CURSOR_DOWN 125
+</div><div class="parity1"><a class="lineno" href="#l120" id="l120">   120</a>CURSOR_UP 126
+</div><div class="parity0"><a class="lineno" href="#l121" id="l121">   121</a>
+</div><div class="parity1"><a class="lineno" href="#l122" id="l122">   122</a>PAGEUP 116
+</div><div class="parity0"><a class="lineno" href="#l123" id="l123">   123</a>PAGEDOWN 121
+</div><div class="parity1"><a class="lineno" href="#l124" id="l124">   124</a>END 119
+</div><div class="parity0"><a class="lineno" href="#l125" id="l125">   125</a>HOME 115
+</div><div class="parity1"><a class="lineno" href="#l126" id="l126">   126</a>
+</div><div class="parity0"><a class="lineno" href="#l127" id="l127">   127</a>BRIGHTNESS_UP 144
+</div><div class="parity1"><a class="lineno" href="#l128" id="l128">   128</a>BRIGHTNESS_DOWN 145
+</div><div class="parity0"><a class="lineno" href="#l129" id="l129">   129</a>
+</div><div class="parity1"><a class="lineno" href="#l130" id="l130">   130</a>EXPOSE_ALL 160
+</div><div class="parity0"><a class="lineno" href="#l131" id="l131">   131</a>DASHBOARD 130
+</div><div class="parity1"><a class="lineno" href="#l132" id="l132">   132</a>
+</div><div class="parity0"><a class="lineno" href="#l133" id="l133">   133</a>JIS_YEN 93
+</div><div class="parity1"><a class="lineno" href="#l134" id="l134">   134</a>JIS_UNDERSCORE 94
+</div><div class="parity0"><a class="lineno" href="#l135" id="l135">   135</a>JIS_EISUU 102
+</div><div class="parity1"><a class="lineno" href="#l136" id="l136">   136</a>JIS_KANA 104
+</div><div class="parity0"><a class="lineno" href="#l137" id="l137">   137</a>JIS_BRACKET_LEFT 30
+</div><div class="parity1"><a class="lineno" href="#l138" id="l138">   138</a>JIS_BRACKET_RIGHT 42
+</div><div class="parity0"><a class="lineno" href="#l139" id="l139">   139</a>JIS_ATMARK 33
+</div><div class="parity1"><a class="lineno" href="#l140" id="l140">   140</a>JIS_COLON 39
+</div><div class="parity0"><a class="lineno" href="#l141" id="l141">   141</a>JIS_HAT 24
+</div><div class="parity1"><a class="lineno" href="#l142" id="l142">   142</a>
+</div><div class="parity0"><a class="lineno" href="#l143" id="l143">   143</a>RUSSIAN_PARAGRAPH 10
+</div><div class="parity1"><a class="lineno" href="#l144" id="l144">   144</a>RUSSIAN_TILDE 50
+</div><div class="parity0"><a class="lineno" href="#l145" id="l145">   145</a>UK_SECTION 10
+</div><div class="parity1"><a class="lineno" href="#l146" id="l146">   146</a>GERMAN_QUOTE 24
+</div><div class="parity0"><a class="lineno" href="#l147" id="l147">   147</a>GERMAN_CIRCUMFLEX 10
+</div><div class="parity1"><a class="lineno" href="#l148" id="l148">   148</a>GERMAN_LESS_THAN 50
+</div><div class="parity0"><a class="lineno" href="#l149" id="l149">   149</a>FRENCH_MINUS 24
+</div><div class="parity1"><a class="lineno" href="#l150" id="l150">   150</a>FRENCH_RIGHT_PAREN 27
+</div><div class="parity0"><a class="lineno" href="#l151" id="l151">   151</a>FRENCH_EQUAL 44
+</div><div class="parity1"><a class="lineno" href="#l152" id="l152">   152</a>FRENCH_HAT 33
+</div><div class="parity0"><a class="lineno" href="#l153" id="l153">   153</a>SWEDISH_SECTION 10
+</div><div class="parity1"><a class="lineno" href="#l154" id="l154">   154</a>SWEDISH_LESS_THAN 50
+</div><div class="parity0"><a class="lineno" href="#l155" id="l155">   155</a>SWISS_SECTION 10
+</div><div class="parity1"><a class="lineno" href="#l156" id="l156">   156</a>SWISS_LESS_THAN 50
+</div><div class="parity0"><a class="lineno" href="#l157" id="l157">   157</a>
+</div><div class="parity1"><a class="lineno" href="#l158" id="l158">   158</a>// Virtual KeyCode
+</div><div class="parity0"><a class="lineno" href="#l159" id="l159">   159</a>VK__BEGIN__ 1024
+</div><div class="parity1"><a class="lineno" href="#l160" id="l160">   160</a>VK_NONE --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l161" id="l161">   161</a>// For ConsumerToKey, PointingButtonToKey
+</div><div class="parity1"><a class="lineno" href="#l162" id="l162">   162</a>VK_PSEUDO_KEY --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l163" id="l163">   163</a>//
+</div><div class="parity1"><a class="lineno" href="#l164" id="l164">   164</a>VK_MODIFIER_EXTRA1 --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l165" id="l165">   165</a>VK_MODIFIER_EXTRA2 --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l166" id="l166">   166</a>VK_MODIFIER_EXTRA3 --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l167" id="l167">   167</a>VK_MODIFIER_EXTRA4 --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l168" id="l168">   168</a>VK_MODIFIER_EXTRA5 --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l169" id="l169">   169</a>//
+</div><div class="parity1"><a class="lineno" href="#l170" id="l170">   170</a>VK_LOCK_COMMAND_L           --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l171" id="l171">   171</a>VK_LOCK_COMMAND_R           --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l172" id="l172">   172</a>VK_LOCK_CONTROL_L           --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l173" id="l173">   173</a>VK_LOCK_CONTROL_R           --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l174" id="l174">   174</a>VK_LOCK_FN                  --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l175" id="l175">   175</a>VK_LOCK_OPTION_L            --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l176" id="l176">   176</a>VK_LOCK_OPTION_R            --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l177" id="l177">   177</a>VK_LOCK_SHIFT_L             --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l178" id="l178">   178</a>VK_LOCK_SHIFT_R             --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l179" id="l179">   179</a>VK_LOCK_EXTRA1              --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l180" id="l180">   180</a>VK_LOCK_EXTRA2              --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l181" id="l181">   181</a>VK_LOCK_EXTRA3              --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l182" id="l182">   182</a>VK_LOCK_EXTRA4              --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l183" id="l183">   183</a>VK_LOCK_EXTRA5              --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l184" id="l184">   184</a>VK_LOCK_COMMAND_L_FORCE_ON  --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l185" id="l185">   185</a>VK_LOCK_COMMAND_R_FORCE_ON  --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l186" id="l186">   186</a>VK_LOCK_CONTROL_L_FORCE_ON  --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l187" id="l187">   187</a>VK_LOCK_CONTROL_R_FORCE_ON  --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l188" id="l188">   188</a>VK_LOCK_FN_FORCE_ON         --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l189" id="l189">   189</a>VK_LOCK_OPTION_L_FORCE_ON   --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l190" id="l190">   190</a>VK_LOCK_OPTION_R_FORCE_ON   --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l191" id="l191">   191</a>VK_LOCK_SHIFT_L_FORCE_ON    --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l192" id="l192">   192</a>VK_LOCK_SHIFT_R_FORCE_ON    --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l193" id="l193">   193</a>VK_LOCK_EXTRA1_FORCE_ON     --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l194" id="l194">   194</a>VK_LOCK_EXTRA2_FORCE_ON     --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l195" id="l195">   195</a>VK_LOCK_EXTRA3_FORCE_ON     --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l196" id="l196">   196</a>VK_LOCK_EXTRA4_FORCE_ON     --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l197" id="l197">   197</a>VK_LOCK_EXTRA5_FORCE_ON     --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l198" id="l198">   198</a>VK_LOCK_COMMAND_L_FORCE_OFF --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l199" id="l199">   199</a>VK_LOCK_COMMAND_R_FORCE_OFF --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l200" id="l200">   200</a>VK_LOCK_CONTROL_L_FORCE_OFF --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l201" id="l201">   201</a>VK_LOCK_CONTROL_R_FORCE_OFF --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l202" id="l202">   202</a>VK_LOCK_FN_FORCE_OFF        --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l203" id="l203">   203</a>VK_LOCK_OPTION_L_FORCE_OFF  --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l204" id="l204">   204</a>VK_LOCK_OPTION_R_FORCE_OFF  --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l205" id="l205">   205</a>VK_LOCK_SHIFT_L_FORCE_OFF   --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l206" id="l206">   206</a>VK_LOCK_SHIFT_R_FORCE_OFF   --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l207" id="l207">   207</a>VK_LOCK_EXTRA1_FORCE_OFF    --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l208" id="l208">   208</a>VK_LOCK_EXTRA2_FORCE_OFF    --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l209" id="l209">   209</a>VK_LOCK_EXTRA3_FORCE_OFF    --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l210" id="l210">   210</a>VK_LOCK_EXTRA4_FORCE_OFF    --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l211" id="l211">   211</a>VK_LOCK_EXTRA5_FORCE_OFF    --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l212" id="l212">   212</a>VK_LOCK_ALL_FORCE_OFF       --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l213" id="l213">   213</a>//
+</div><div class="parity1"><a class="lineno" href="#l214" id="l214">   214</a>VK_STICKY_COMMAND_L --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l215" id="l215">   215</a>VK_STICKY_COMMAND_R --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l216" id="l216">   216</a>VK_STICKY_CONTROL_L --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l217" id="l217">   217</a>VK_STICKY_CONTROL_R --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l218" id="l218">   218</a>VK_STICKY_FN --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l219" id="l219">   219</a>VK_STICKY_OPTION_L --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l220" id="l220">   220</a>VK_STICKY_OPTION_R --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l221" id="l221">   221</a>VK_STICKY_SHIFT_L --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l222" id="l222">   222</a>VK_STICKY_SHIFT_R --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l223" id="l223">   223</a>VK_STICKY_EXTRA1 --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l224" id="l224">   224</a>VK_STICKY_EXTRA2 --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l225" id="l225">   225</a>VK_STICKY_EXTRA3 --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l226" id="l226">   226</a>VK_STICKY_EXTRA4 --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l227" id="l227">   227</a>VK_STICKY_EXTRA5 --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l228" id="l228">   228</a>//
+</div><div class="parity0"><a class="lineno" href="#l229" id="l229">   229</a>VK_LAZY_COMMAND_L --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l230" id="l230">   230</a>VK_LAZY_COMMAND_R --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l231" id="l231">   231</a>VK_LAZY_CONTROL_L --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l232" id="l232">   232</a>VK_LAZY_CONTROL_R --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l233" id="l233">   233</a>VK_LAZY_FN        --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l234" id="l234">   234</a>VK_LAZY_OPTION_L  --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l235" id="l235">   235</a>VK_LAZY_OPTION_R  --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l236" id="l236">   236</a>VK_LAZY_SHIFT_L   --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l237" id="l237">   237</a>VK_LAZY_SHIFT_R   --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l238" id="l238">   238</a>//
+</div><div class="parity0"><a class="lineno" href="#l239" id="l239">   239</a>VK_MOUSEKEY_UP    --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l240" id="l240">   240</a>VK_MOUSEKEY_DOWN  --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l241" id="l241">   241</a>VK_MOUSEKEY_LEFT  --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l242" id="l242">   242</a>VK_MOUSEKEY_RIGHT --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l243" id="l243">   243</a>VK_MOUSEKEY_SCROLL_UP    --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l244" id="l244">   244</a>VK_MOUSEKEY_SCROLL_DOWN  --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l245" id="l245">   245</a>VK_MOUSEKEY_SCROLL_LEFT  --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l246" id="l246">   246</a>VK_MOUSEKEY_SCROLL_RIGHT --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l247" id="l247">   247</a>VK_MOUSEKEY_HIGHSPEED --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l248" id="l248">   248</a>//
+</div><div class="parity0"><a class="lineno" href="#l249" id="l249">   249</a>// Raw InputMode Change using &quot;Text Input Source Services&quot;
+</div><div class="parity1"><a class="lineno" href="#l250" id="l250">   250</a>VK_CHANGE_INPUTMODE_ENGLISH --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l251" id="l251">   251</a>VK_CHANGE_INPUTMODE_FRENCH --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l252" id="l252">   252</a>VK_CHANGE_INPUTMODE_GERMAN --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l253" id="l253">   253</a>VK_CHANGE_INPUTMODE_JAPANESE --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l254" id="l254">   254</a>VK_CHANGE_INPUTMODE_SWEDISH --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l255" id="l255">   255</a>VK_CHANGE_INPUTMODE_CANADIAN --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l256" id="l256">   256</a>VK_CHANGE_INPUTMODE_RUSSIAN --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l257" id="l257">   257</a>VK_CHANGE_INPUTMODE_RUSSIAN_TYPOGRAPHIC --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l258" id="l258">   258</a>VK_CHANGE_INPUTMODE_ENGLISH_TYPOGRAPHIC --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l259" id="l259">   259</a>VK_CHANGE_INPUTMODE_TRADITIONAL_CHINESE_YAHOO_KEYKEY --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l260" id="l260">   260</a>VK_CHANGE_INPUTMODE_ESTONIAN --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l261" id="l261">   261</a>//
+</div><div class="parity1"><a class="lineno" href="#l262" id="l262">   262</a>VK_JIS_TOGGLE_EISUU_KANA --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l263" id="l263">   263</a>VK_JIS_TEMPORARY_ROMAN --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l264" id="l264">   264</a>VK_JIS_TEMPORARY_HIRAGANA --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l265" id="l265">   265</a>VK_JIS_TEMPORARY_KATAKANA --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l266" id="l266">   266</a>VK_JIS_TEMPORARY_AINU --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l267" id="l267">   267</a>VK_JIS_TEMPORARY_RESTORE --AUTO--
+</div><div class="parity1"><a class="lineno" href="#l268" id="l268">   268</a>VK_JIS_BACKSLASH --AUTO--
+</div><div class="parity0"><a class="lineno" href="#l269" id="l269">   269</a>VK_JIS_YEN --AUTO--
+</div>
+</pre>
+
+
+<div class="logo">
+<a href="http://www.selenic.com/mercurial/">
+<img src="/KeyRemap4MacBook/index.cgi/static/hglogo.png" width=75 height=90 border=0 alt="mercurial"></a>
+</div>
+
+</body>
+</html>
+

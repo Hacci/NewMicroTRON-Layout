@@ -1,0 +1,52 @@
+<!-- UTF-8 -->
+<!-- μTRONキーボード用のμTRON配列/JISモード -->
+<!-- 09.12.28 6.2.58 or later Haci -->
+<!-- 09.11.25 autogen は1行で記述すること。 -->
+<!-- 09.12.30 6.2.60から日本語をコメントで書けるようになった。 -->
+<!-- 10.1.17 ver6.3.14: includeのネストができるようになったので、まとめた。 -->
+<!-- 11.1.6 nameタグで日本語を使用する。 -->
+<!-- 11.1.6 sysctlタグをidentifierに変更。 -->
+<!-- 11.1.8 自作していたexternal_sysctl_notタグをconfig_notに変更。identifierで指定する名前をそのまま参照するようになったので分かりやすくなった。 -->
+<!-- 11.1.11 ver7.0.33 今までkeyboardtype_only(JIS_PC_USB_KEYBOARD)で限定していたが、device_onlyの指定に変更｡ -->
+<!-- 2011.02.04(金)pm02:50 ver7.0.37 KeyCode::VK_JIS_TEMPORARY_RESTOREを復活。 -->
+            	<item>
+              	  <name>μTRONキーボード(UC Technology製) [42]</name>
+              		<list>
+
+				        <item>
+				          <name>(TRONモード) 新μTRON配列 </name>
+				          <appendix>(ひらがな,カナ入力)</appendix>
+				          <appendix>(Function,数字,記号など)</appendix>
+				          <identifier>remap.microTRONKB_mTRON</identifier>
+				          <device_only>DeviceVendor::UC_TECHNOLOGY,DeviceProduct::MICRO_TRONKB</device_only><!-- 2011.01.11(火) ver7.0.33 OK -->
+				          <!-- #include "include/microTRONKB_mTRON_Dvorak_common.xml" -->
+				          		<!-- 09.12.28 -->
+				          <!-- #include "include/microTRONKB_mTRON.xml" -->
+				          		<!-- 09.12.28 -->
+
+				        </item>
+
+				        <item>
+				          <name>(TRONモード) Dvorak配列</name><!-- Haci 09.12.2 koko800 -->
+				          <appendix>(Function,数字,記号など)</appendix>
+				          <identifier>remap.microTRONKB_Dvorak</identifier>
+				          <device_only>DeviceVendor::UC_TECHNOLOGY,DeviceProduct::MICRO_TRONKB</device_only><!-- 2011.01.11(火) ver7.0.33 OK -->
+				          <!-- #include "include/microTRONKB_mTRON_Dvorak_common.xml" -->
++				          		<!-- 09.12.28 、2011.03.17(木)ひらがなと一緒にオンしている時はここには入らない。単独の時のため。-->
+				          <!-- #include "include/microTRONKB_Dvorak.xml" -->
+				          		<!-- 09.12.28 -->
+				        </item>
+
+				        <item>
+				          <name>(JISモード) JIS配列</name><!-- Haci 09.11.25 -->
+
+				          <identifier>remap.microTRONKB_jismode</identifier>
+				          <config_not>remap.microTRONKB_mTRON, remap.microTRONKB_Dvorak</config_not><!-- 09.12.3,11.1.8 -->
+				          <device_only>DeviceVendor::UC_TECHNOLOGY,DeviceProduct::MICRO_TRONKB</device_only><!-- 2011.01.11(火) ver7.0.33 OK -->
+						  <!-- CyuDan_L -->
+				          <autogen>--KeyToKey-- KeyCode::PC_APPLICATION, KeyCode::OPTION_L</autogen><!-- Menu to OptionL -->
+				        </item>
+
+              		</list>
+            	</item>
+

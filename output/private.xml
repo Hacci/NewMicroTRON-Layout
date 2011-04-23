@@ -1,0 +1,860 @@
+<?xml version="1.0"?>
+<!-- 2011.01.08 Haci-->
+<root>
+  <list>
+            <item>
+              <name>Full Remap for compact KB</name><!-- 09.11.12 Haci-->
+              <list>
+<!-- 10.2.13 SandSで逆変換にするためシフトRを追加 -->
+<!-- 10.2.16 連打対策の新方式は、このファイルではKeyCode::VK_JIS_TEMPORARY_RESTOREを削除しない。SandSのスペースなので多用するキーだし、元に戻った方がいいので。 -->
+<!-- 11.1.6 nameタグで日本語を使用する。 -->
+<!-- 11.1.8 自作していたexternal_sysctl_notタグをconfig_notに変更。identifierで指定する名前をそのまま参照するようになったので分かりやすくなった。 -->
+<!-- 11.1.10 ModifierHoldingKeyToKey(ver6.8.0で廃止)をHoldingKeyToKeyに修正して、使いやすくなった。 -->
+<!-- 2011.01.10(月)遅延が起きるので、自ビルドまでSandSで, KeyCode::VK_JIS_TEMPORARY_RESTOREを一時的に外す｡ -->
+<!-- 2011.01.24(月) vk.ignore_jis_temporary_restoreを追加し、VK_JIS_TEMPORARY_RESTORE指定を無視を含めて、その指定なしでの一連の改造の有無を切り替えれるようにする。 -->
+<item>
+  <name>general</name>
+  <list>
+        <item>
+          <name>Ignore VK_JIS_TEMPORARY_RESTORE</name><!-- 2011.01.24(月) -->
+          <appendix>連打遅延対策: VK_JIS_TEMPORARY_RESTORE指定を無視</appendix>
+          <identifier>vk.ignore_jis_temporary_restore</identifier>
+        </item>
+
+
+        <item>
+          <name>Use short-cut of IM change</name><!-- 10.1.24 test Haci システムのショートカット(初期値Command+Option+Space)を利用してモード一時変更をする場合 -->
+          <identifier>remap.use_shortcut_IM</identifier><!-- 11.1.6 これは何だったかな? -->
+        </item>
+
+        <item>
+          <name>Option_R-ArrowUpDn to PageUp/Down Key</name><!-- 09.11.10 Haci -->
+          <appendix>(when you hold CURSOR_UP/DOWN, send Home/End)</appendix>
+          <identifier>remap.optionR_arrowUpDn2pageUpDown_Holding_optionR_to_HomeEnd</identifier>
+          <autogen>--HoldingKeyToKey-- KeyCode::CURSOR_UP,   ModifierFlag::OPTION_R, KeyCode::PAGEUP,   KeyCode::VK_NONE,  KeyCode::HOME</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_R, KeyCode::PAGEDOWN, KeyCode::VK_NONE,  KeyCode::END</autogen>
+                      <!-- 2011.01.9 従来と違って、Optin_Rを押しながら、矢印キー単打でPageUp,Downで矢印キーを長押しでHome,End。こっちの方が使いやすいね、確かに。 -->
+        </item>
+
+
+        <item><!-- 2011.01.10 Haci デフォルトのCommand+上下矢印はHome,Endライクに動作して使い難いので、単打ではPageUp/DOWNにして、矢印キー長押しでデフォルトと同じにした。  -->
+        	 <!--             結果的に、上記のOption+上下矢印キーと同じ｡でも、Home,Endの動きはなぜかスクロールバーが段階的に移動するのはMac版ソフト、特にエディタ系のバグ? -->
+          <name>Command_L+arrow_UP to PageUp</name><!-- 08.7.16 Haci -->
+          <appendix>(when you hold CURSOR_UP, send Command_L+arrow_UP)</appendix>
+          <identifier>remap.commandLlong_arrowUp2pageup</identifier>
+          <autogen>--HoldingKeyToKey-- KeyCode::CURSOR_UP,   ModifierFlag::COMMAND_L,  KeyCode::PAGEUP,    KeyCode::VK_NONE,  KeyCode::CURSOR_UP,   ModifierFlag::COMMAND_L</autogen>
+        </item>
+        <item>
+          <name>Command_L+arrow_DOWN to PageDown</name><!-- 08.7.16 Haci -->
+          <appendix>(when you hold CURSOR_DOWN, send Command_L+arrow_DOWN)</appendix>
+          <identifier>remap.commandLlong_arrowDn2pagedown</identifier>
+          <autogen>--HoldingKeyToKey-- KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_L,  KeyCode::PAGEDOWN,  KeyCode::VK_NONE,  KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_L</autogen>
+        </item>
+
+        <item>
+          <name>Command_R+arrow_UP to PageUp</name><!-- 08.7.16 Haci -->
+          <appendix>(when you hold CURSOR_UP, send Command_R+arrow_UP)</appendix>
+          <identifier>remap.commandRlong_arrowUp2pageup</identifier>
+          <autogen>--HoldingKeyToKey-- KeyCode::CURSOR_UP,   ModifierFlag::COMMAND_R,  KeyCode::PAGEUP,    KeyCode::VK_NONE,  KeyCode::CURSOR_UP,   ModifierFlag::COMMAND_R</autogen>
+        </item>
+        <item>
+          <name>Command_R+arrow_DOWN to PageDown</name><!-- 08.7.16 Haci -->
+          <appendix>(when you hold CURSOR_DOWN, send Command_R+arrow_DOWN)</appendix>
+          <identifier>remap.commandRlong_arrowDn2pagedown</identifier>
+          <autogen>--HoldingKeyToKey-- KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_R,  KeyCode::PAGEDOWN,  KeyCode::VK_NONE,  KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_R</autogen>
+        </item>
+
+
+          <!-- 09.11.5 Haci remap.holding_command_to_f1_f12 -->
+        <item>
+          <name>Command(Holding)+num to F1-F12</name><!-- 09.11.5 Haci -->
+          <identifier>remap.holding_command_to_f1_f12</identifier>
+          <!-- 2011.01.10(月) 従来はプログラムを追加していたが、以下をテスト的に追加｡但し、数値をリマップ後の値にならないので、少し使い難い(不完全)｡  -->
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_1, VK_COMMAND, KeyCode::KEY_1, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F1</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_2, VK_COMMAND, KeyCode::KEY_2, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F2</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_3, VK_COMMAND, KeyCode::KEY_3, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F3</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_4, VK_COMMAND, KeyCode::KEY_4, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F4</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_5, VK_COMMAND, KeyCode::KEY_5, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F5</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_6, VK_COMMAND, KeyCode::KEY_6, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F6</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_7, VK_COMMAND, KeyCode::KEY_7, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F7</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_8, VK_COMMAND, KeyCode::KEY_8, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F8</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_9, VK_COMMAND, KeyCode::KEY_1, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F1</autogen>
+          <autogen>--HoldingKeyToKey-- KeyCode::KEY_0, VK_COMMAND, KeyCode::KEY_0, VK_COMMAND ,  KeyCode::VK_NONE,  KeyCode::F10</autogen>
+
+        </item>
+
+
+        <item>
+          <name>Command/Control+Shift_L to Option+V/G(KAWASEMI: RuigiGo/KanrenMoji Henkan)</name><!-- Haci 09.12.4 Haci koko707 -->
+          <identifier>remap.jis_commandORcontrolShiftL2option_V_G</identifier>
+          <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L,VK_COMMAND, KeyCode::SHIFT_L,VK_COMMAND, KeyCode::V,ModifierFlag::OPTION_R</autogen><!-- Ruigigo Henkan : MiKautei Joutai -->
+          <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L,VK_CONTROL, KeyCode::SHIFT_L,VK_CONTROL, KeyCode::G,ModifierFlag::OPTION_R</autogen><!-- KanrenMoji Henkan : MiKautei Joutai-->
+          											<!-- 09.12.6 KeyToKey dewa repeat shitesimau -->
+          											<!-- 09.12.9 Redo no shortcut to onaji nanode dame nanode,Redo wa betsu no key ni settei sureba yoi. -->
+          											<!-- 09.12.9 change keyTokey to KeyOverlaidModifier without repeat -->
+							<!-- 09.12.9 6.2.16 de wa kano item no ichiban saigo demo yokattaga, 6.2.27 dewa remap.shiftL2shiftL_space no ato ni haichi suruto, space ni natta ato de ctrl+space to natte shimau. -->
+        </item>
+        <item>
+          <name>Command/Control+Shift_R to Option+F/T(KAWASEMI: WaEi/KakuteiRireki Henkan)</name><!--  09.12.4 Haci koko705 -->
+          <identifier>remap.jis_commandORcontrolShiftR2option_F_T</identifier>
+          <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R,VK_COMMAND, KeyCode::SHIFT_R,VK_COMMAND, KeyCode::F,ModifierFlag::OPTION_R</autogen><!-- WaEi Henkan : MiKautei Joutai -->
+          <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R,VK_CONTROL, KeyCode::SHIFT_R,VK_CONTROL, KeyCode::T,ModifierFlag::OPTION_R</autogen><!-- Kakutei Rireki Henkan: After Kakutei -->
+          											<!-- 09.12.6 KeyToKey dewa repeat shitesimau -->
+          											<!-- 09.12.9 Redo no shortcut to onaji nanode dame nanode,Redo wa betsu no key ni settei sureba yoi. -->
+          											<!-- 09.12.9 change keyTokey to KeyOverlaidModifier without repeat -->
+							<!-- 09.12.9 6.2.16 de wa kano item no ichiban saigo demo yokattaga, 6.2.27 dewa remap.shiftR2shiftR_space no ato ni haichi suruto, space ni natta ato de ctrl+space to natte shimau. -->
+							<!-- 09.12.23 remap.shf2shf_space__shfLshfRtoshfspace__shfRshfLtospace de shiftR mo matometa node sono mae ni nai to dousa shinai node kokoni idou. -->
+        </item>
+
+
+        <item>
+          <name>SandS (半角Space)[キーリピート無し] (左利き用)</name><!-- 08.12.22 Haci: for left-handed persons -->
+          <appendix>SSandS (Shift_L+R to Shift+Han_Space, Shift_R+L to Zen_Space)+ [KeyRepeat]</appendix>
+          <config_not>remap.shf2shf_space__shfRshfLtoshfspace__shfLshfRtospace</config_not><!-- 11.1.8 -->
+          <identifier>remap.shf2shf_space__shfLshfRtoshfspace__shfRshfLtospace</identifier>
+		  <autogen>--KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::SPACE, ModifierFlag::SHIFT_L</autogen><!-- Hankaku space -->
+		  <autogen>--KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Zenkaku space: 09.12.25 repeat tsuki no Zenkaku space to Hankaku space wo tsukaiwakeru kotoga dekiru node.-->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, KeyCode::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Hankaku space -->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, KeyCode::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Hankaku space -->
+        </item>
+
+        <item>
+          <name>SandS (半角Space)[キーリピート無し] (右利き用)</name><!-- 08.12.22 Haci: for right-handed persons -->
+          <appendix>SSandS (Shift_R+L to Shift+Han_Space, Shift_L+Shift_R to Zen_Space)+ [KeyRepeat]</appendix>
+          <identifier>remap.shf2shf_space__shfRshfLtoshfspace__shfLshfRtospace</identifier>
+		  <autogen>--KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::SPACE, ModifierFlag::SHIFT_R</autogen><!-- Hankaku space -->
+		  <autogen>--KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Zenkaku space 09.12.25 -->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, KeyCode::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Hankaku space --><!-- 10.2.13 逆変換にするためシフトRを追加 -->
+		  <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, KeyCode::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SPACE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen><!-- Hankaku space -->
+
+        </item>
+
+
+       <item>
+          <name>Command/Control+SPACE to Option+F/T(かわせみ: 和英/確定履歴 変換)</name><!--  09.12.4 Haci koko705 -->
+          <identifier>remap.jis_commandORcontrolSpace2option_F_T</identifier>
+          <autogen>--KeyOverlaidModifier-- KeyCode::SPACE,VK_COMMAND, KeyCode::SPACE,VK_COMMAND, KeyCode::F,ModifierFlag::OPTION_R</autogen><!-- WaEi Henkan : MiKautei Joutai -->
+          <autogen>--KeyOverlaidModifier-- KeyCode::SPACE,VK_CONTROL, KeyCode::SPACE,VK_CONTROL, KeyCode::T,ModifierFlag::OPTION_R</autogen><!-- Kakutei Rireki Henkan: After Kakutei -->
+          											<!-- 09.12.6 KeyToKey dewa repeat shitesimau -->
+          											<!-- 09.12.9 Redo no shortcut to onaji nanode dame nanode,Redo wa betsu no key ni settei sureba yoi. -->
+          											<!-- 09.12.9 change keyTokey to KeyOverlaidModifier without repeat -->
+							<!-- 09.12.9 6.2.16 de wa kano item no ichiban saigo demo yokattaga, 6.2.27 dewa remap.shiftR2shiftR_space no ato ni haichi suruto, space ni natta ato de ctrl+space to natte shimau.ナンだ -->
+        </item>
+
+
+        <item><!--  2011.01.11(火) テスト -->
+          <name>Simultaneous Key Presses [D+F] to Return</name>
+          <identifier>remap.simultaneouskeypresses_df_to_return</identifier>
+          <autogen>--SimultaneousKeyPresses-- KeyCode::D, KeyCode::F, KeyCode::RETURN</autogen>
+        </item>
+
+        <item><!--  2011.01.11(火) テスト -->
+          <name>Simultaneous Key Presses [J+K/K+L] to Undo/Redo</name>
+          <identifier>remap.simultaneouskeypresses_jk_to_Undo_redo</identifier>
+          <autogen>--SimultaneousKeyPresses-- KeyCode::J, KeyCode::K, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
+          <autogen>--SimultaneousKeyPresses-- KeyCode::K, KeyCode::L, KeyCode::Z, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+        </item>
+
+
+  </list>
+</item>
+<!-- UTF-8 -->
+<!-- μTRONキーボード用のμTRON配列/JISモード -->
+<!-- 09.12.28 6.2.58 or later Haci -->
+<!-- 09.11.25 autogen は1行で記述すること。 -->
+<!-- 09.12.30 6.2.60から日本語をコメントで書けるようになった。 -->
+<!-- 10.1.17 ver6.3.14: includeのネストができるようになったので、まとめた。 -->
+<!-- 11.1.6 nameタグで日本語を使用する。 -->
+<!-- 11.1.6 sysctlタグをidentifierに変更。 -->
+<!-- 11.1.8 自作していたexternal_sysctl_notタグをconfig_notに変更。identifierで指定する名前をそのまま参照するようになったので分かりやすくなった。 -->
+<!-- 11.1.11 ver7.0.33 今までkeyboardtype_only(JIS_PC_USB_KEYBOARD)で限定していたが、device_onlyの指定に変更｡ -->
+            	<item>
+              	  <name>μTRONキーボード(UC Technology製) [42]</name>
+              		<list>
+
+				        <item>
+				          <name>(TRONモード) 新μTRON配列 </name>
+				          <appendix>(ひらがな,カナ入力)</appendix>
+				          <appendix>(Function,数字,記号など)</appendix>
+				          <identifier>remap.microTRONKB_mTRON</identifier>
+				          <device_only>DeviceVendor::UC_TECHNOLOGY,DeviceProduct::MICRO_TRONKB</device_only><!-- 2011.01.11(火) ver7.0.33 OK -->
+<!-- UTF-8 -->
+<!-- μTRONキーボード用のμTRON配列・Dvorak配列共通のリマップ -->
+<!-- 09.12.28 6.2.58 or later Haci -->
+<!-- 09.12.30 6.2.60から日本語をコメントで書けるようになった。 -->
+<!-- 10.2.10 inputmodedetail_onlyを追加(全てを指定）。これは、連打対策。 -->
+<!-- 10.2.13 Tab→全角スペースで、Command+Option+Spaceでモード変更できなくなってしまうので、ModifierFlag::NONEを追加。 -->
+<!-- 10.2.13 ShiftR+Space → Command+Space、ShiftL+Space → Command+Option+Space を追加。これでかなキー、英数キーを押さなくて良くなって完璧の完璧。-->
+<!-- 10.2.16 連打対策の新方式のため、KeyCode::VK_JIS_TEMPORARY_RESTOREを全て削除。 -->
+<!-- 10.3.7 連打対策の新方式の完成に伴ってTAB設定を変更。 -->
+<!-- 11.1.5 JIS_BS,JIS_DELをPC_BS,PC_DELに変更。 -->
+<!-- 11.1.6 inputmodedetailの変数名の変更に対応。従来の長い名前が短くなった｡ -->
+<!-- 11.1.8 JIS_AT,JIS_CARET  JIS_ATMARK,JIS_HAT -->
+<!-- 2011.02.04(金) VK_JIS_TEMPORARY_RESTOREを復活。 -->
+<block>
+    <inputmodedetail_only>ROMAN, JAPANESE, JAPANESE_HIRAGANA,JAPANESE_KATAKANA</inputmodedetail_only>
+
+<!-- 最上段L(Function) -->
+  <!-- F1(Fn+1)-F5(Fn+5) そのまま -->
+  <!-- F6 to F11 -->
+	<autogen>--KeyToKey-- KeyCode::F6,  KeyCode::F11</autogen>
+
+<!-- 最上段R(Function) -->
+	<autogen>--KeyToKey-- KeyCode::F7,  KeyCode::F12</autogen>	<!-- F7  to F12 -->
+	<autogen>--KeyToKey-- KeyCode::F8,  KeyCode::F6</autogen>	<!-- F8  to F6 -->
+	<autogen>--KeyToKey-- KeyCode::F9,  KeyCode::F7</autogen>	<!-- F9  to F7 -->
+	<autogen>--KeyToKey-- KeyCode::F10, KeyCode::F8</autogen>	<!-- F10 to F8 -->
+	<autogen>--KeyToKey-- KeyCode::F11, KeyCode::F9</autogen>	<!-- F11 to F9 -->
+	<autogen>--KeyToKey-- KeyCode::F12, KeyCode::F10</autogen>	<!-- F12 to F10 -->
+
+<!-- ================================================= -->
+<!-- 最上段L -->
+  <!-- @ $ ¥ -->
+	<autogen>--KeyToKey-- KeyCode::ESCAPE, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_4,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::ESCAPE, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::JIS_YEN, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::ESCAPE, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::JIS_ATMARK, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- 1 to 1 ` ~ -->
+	<autogen>--KeyToKey-- KeyCode::KEY_1, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::BACKQUOTE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_1, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::JIS_HAT,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_1, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_1, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- 2 to 2 single-quotationL single-quotationR -->
+	<autogen>--KeyToKey-- KeyCode::KEY_2, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_5, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_2, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_5,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_2, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_2, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- 3 to 3 double-quotationL double-quotationR 10.2.15 , KeyCode::VK_JIS_TEMPORARY_RESTORE無し方式のテスト -->
+	<autogen>--KeyToKey-- KeyCode::KEY_3, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_6, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_3, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_6,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_3, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_3, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+
+  <!-- 4 to 4 「 」(かぎ括弧) -->
+  <!-- 10.2.24 英字モードのときに、これでひらがなモードに変わると、英語キーがひらがなになってしまうという新たなバグは、英字モードの時の記述でも5段のKeyToKeyを必ず通るようにするためのKeyCode::VK_NONEを追加していなかったから。 -->
+	<autogen>--KeyToKey-- KeyCode::KEY_4, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::BRACKET_RIGHT,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_4, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::BACKSLASH,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_4, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_4, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- 5 to 5 『 』(2重かぎ括弧) -->
+  <!-- かわせみv1.0.1(42)がkeylayoutファイルをかなモードで使用するのは正しい。ことえりは英数モードのみ。仕方ないので、ことえりに合わせる。 -->
+	<autogen>--KeyToKey-- KeyCode::KEY_5, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN,  KeyCode::KEYPAD_3, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_5, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_3,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_5, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_5, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- 6 to optionL -->
+	<autogen>--KeyToKey-- KeyCode::KEY_6, KeyCode::OPTION_L, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+
+<!-- 最上段R -->
+  <!-- 7+Shift to Command -(ZoomOut ) 091207 -->
+  <!-- 7 	   to Command +(ZoomIn  ) -->
+  <!-- Command+ShiftをOption+V(かわせみ用)にしたためZoomInができなくなったため専用キーにした。意外に使いやすい。 -->
+	<autogen>--KeyToKey-- KeyCode::KEY_7, VK_SHIFT, KeyCode::MINUS, VK_COMMAND</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_7, KeyCode::SEMICOLON, VK_COMMAND|VK_SHIFT</autogen>
+  <!-- 8 to 6 小なり記号 大なり記号 -->
+	<autogen>--KeyToKey-- KeyCode::KEY_8, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::COMMA,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_8, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::DOT,  VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_8, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_6, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- 9 to 7 ( )-->
+	<autogen>--KeyToKey-- KeyCode::KEY_9, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_8,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_9, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_9,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_9, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_7, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- 0 to 8  { }  10.2.15 , KeyCode::VK_JIS_TEMPORARY_RESTORE無し方式のテスト -->
+	<autogen>--KeyToKey-- KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::BRACKET_RIGHT,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_0, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::BACKSLASH,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_0, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_8, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+
+  <!-- Minus to 9 [ ] -->
+	<autogen>--KeyToKey-- KeyCode::MINUS, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::BRACKET_RIGHT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::MINUS, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::BACKSLASH, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::MINUS, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_9, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- ^(caret) to 0 \ | -->
+  <!-- PS/2Jのバグを修正しておく必要あり。key code="94": _ → \ -->
+	<autogen>--KeyToKey-- KeyCode::JIS_HAT, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::JIS_UNDERSCORE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::JIS_HAT, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::JIS_YEN,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::JIS_HAT, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_0, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+
+  <!-- Yen to Esc -->
+	<autogen>--KeyToKey-- KeyCode::JIS_YEN, KeyCode::ESCAPE</autogen>
+
+<!-- ================================================= -->
+<!-- 上段L -->
+  <!-- NumLk to CLEAR(by KeyboardHack) to ! '(apostrophe) "(straight-quotation-mark) -->
+	<autogen>--KeyToKey-- KeyCode::KEYPAD_CLEAR, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_7,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEYPAD_CLEAR, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_2,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEYPAD_CLEAR, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_1,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- Q to OptionL -->
+	<autogen>--KeyToKey-- KeyCode::Q, KeyCode::OPTION_L</autogen>
+
+<!-- 上段R -->
+  <!-- HELP(Ins)+Shift to Redo (09.12.9)-->
+  <!-- HELP(Ins)       to Undo -->
+	<autogen>--KeyToKey-- KeyCode::HELP, VK_SHIFT,   KeyCode::Z, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+	<autogen>--KeyToKey-- KeyCode::HELP, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
+  <!-- P to CommandR -->
+	<autogen>--KeyToKey-- KeyCode::P, 	 KeyCode::COMMAND_R</autogen>
+  <!-- [ to / * × -->
+	<autogen>--KeyToKey-- KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::JIS_COLON,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_MULTIPLY,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::BRACKET_RIGHT, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SLASH, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+
+<!-- ================================================= -->
+<!-- 中段L -->
+  <!-- Menu to ? none none -->
+	<autogen>--KeyToKey-- KeyCode::PC_APPLICATION, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::PC_APPLICATION, ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::PC_APPLICATION, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SLASH,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- AltL to CommandL -->
+	<autogen>--KeyToKey-- KeyCode::OPTION_L, KeyCode::COMMAND_L</autogen>
+  <!-- Tab to 全角space :09.12.23 ひらがなモードにすれば英数モードのときでも全角スペースになるうと気づいた。ただし、かわせみでは、「入力モードに合わせる」に設定しておくという前提で。ことえりにはそういう指定はない。-->
+    <!-- 10.2.13 Command+Option+Spaceでモード変更できなくなってしまうので、ModifierFlag::NONEを追加。 -->
+    <!-- 10.2.13 ShiftR+Space → Command+Space、ShiftL+Space → Command+Option+Space を追加-->
+	<autogen>--KeyToKey-- KeyCode::TAB, ModifierFlag::SHIFT_L, KeyCode::SPACE, VK_COMMAND|VK_OPTION</autogen>
+	<autogen>--KeyToKey-- KeyCode::TAB, ModifierFlag::SHIFT_R, KeyCode::SPACE, VK_COMMAND</autogen>
+	<autogen>--KeyToKey-- KeyCode::TAB, ModifierFlag::NONE, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::SPACE, ModifierFlag::NONE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+      <!-- 10.3.7 ModifierFlag::NONEを追加-->
+	<autogen>--KeyToKey-- KeyCode::TAB, KeyCode::SPACE, ModifierFlag::NONE</autogen>
+      <!-- 10.3.7 半角space、これはCommand+Spaceでのモード変更を可能にするため -->
+
+<!-- 中段R -->
+  <!-- Return(Enter key) to Enter -->
+	<autogen>--KeyToKey-- KeyCode::RETURN, KeyCode::ENTER</autogen>
+  <!-- : to - + ÷ (PS/2JのKEYPAD_SLASHに÷を設定しておく) -->
+	<autogen>--KeyToKey-- KeyCode::QUOTE, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SEMICOLON,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::QUOTE, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_SLASH,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::QUOTE, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::MINUS, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- ] to = # % -->
+	<autogen>--KeyToKey-- KeyCode::BACKSLASH, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_3,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::BACKSLASH, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_5,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::BACKSLASH, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::MINUS,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+
+<!-- ================================================= -->
+<!-- 下段L -->
+  <!-- Space to Tab -->
+	<autogen>--KeyToKey-- KeyCode::SPACE, KeyCode::TAB</autogen>
+
+<!-- 下段R -->
+  <!-- \ to OPTION_R -->
+	<autogen>--KeyToKey-- KeyCode::JIS_UNDERSCORE, KeyCode::OPTION_R</autogen>
+
+<!-- ================================================= -->
+<!-- 最下段L -->
+  <!-- PrtSc(Fn+Home) to Del -->
+	<autogen>--KeyToKey-- KeyCode::F13, 		KeyCode::PC_DEL</autogen>
+  <!-- 無変換(NFER) to Ctrl_R(by KeyboardHack) to Return -->
+	<autogen>--KeyToKey-- KeyCode::CONTROL_R, KeyCode::RETURN</autogen>
+
+<!-- 最下段R -->
+  <!-- 変換(XFER) to command_R(by KeyboardHack) -->
+  <!-- PC_BS+shift to PC_DEL -->
+	<autogen>--KeyToKey-- KeyCode::PC_BS,VK_SHIFT, KeyCode::PC_DEL</autogen>
+</block>				          		<!-- 09.12.28 -->
+<!-- UTF-8 -->
+<!-- μTRONキーボード用のμTRON配列 -->
+<!-- 09.12.28 6.2.58 or later Haci -->
+<!-- 09.11.25 autogen は1行で記述すること。 -->
+<!-- 09.12.30 6.2.60から日本語をコメントで書けるようになった。 -->
+<!-- 10.1.17 6.3.14: blockタグで場合分け -->
+<!-- 10.1.22 キーパッド(テンキー)を利用したリマップで、ROMANへのモード一時変更すると、リピートでモードが戻らなくなるという問題が6.3.14から出るようになった。本来キーパッドは全てのモード共通なので、ことえり/ATOK2009のバグには対応せず、正しい「かわせみ」に合わせて、モード一時変更はしない。 -->
+<!-- 10.1.31 6.4.7: キーパッドを利用したカタカナは、blockタグをネストして、まとめる。 -->
+<!-- 10.2.16 連打対策の新方式のため、KeyCode::VK_NONEを全てに追加して、2段以上にして、必ず5段のKeyToKeyに入るようにする。 -->
+<!-- 		 KeyCode::VK_JIS_TEMPORARY_RESTOREを1段目に入れる方法でもいいが、後で戻すとしても、置換しやすいので、最後に付加した。 -->
+<!-- 		 また、KeyCode::VK_JIS_TEMPORARY_RESTOREも削除。 -->
+<!-- 11.1.5 JIS_HAN_ZEN,JIS_HanDAKUONをJIS_PC_HAN_ZEN,JIS_HANDAKUONに変更。 -->
+<!-- 11.1.6 inputmodedetailの変数名の変更に対応。従来の長い名前が短くなった｡ -->
+<!-- 11.1.8 JIS_AT,JIS_CARET  JIS_ATMARK,JIS_HAT -->
+<!-- 2011.01.12(水)test: 左中段とJKLキーとの同時押下で従来の左下段をシミュレートする。 -->
+<!-- 2011.02.04(金)pm12:50  KeyCode::VK_JIS_TEMPORARY_RESTORE(3ヶ所)を復活。 -->
+<!-- ==================================================================================================== -->
+<block>
+    <inputmodedetail_only>JAPANESE, JAPANESE_HIRAGANA,JAPANESE_KATAKANA</inputmodedetail_only>
+
+<!-- 10.1.18 ひらがなモードの時の「ヴ」のリピートは従来はINPUTMODE_DETAIL_JAPANESE_KATAKANAを指定しなくても問題無かったが、6.3.14かその直前のバージョンから動作が変わった。上記カタカナ現象と同様に、ヴのリピートでもモードが戻らない。これは、keytokey関数の引数がconstでなくなったことが原因かもしれない。 -->
+<!-- 上段L 09.12.11 -->
+  <!-- 半角/全角 to ら ひ び -->
+	<autogen>--KeyToKey-- KeyCode::JIS_PC_HAN_ZEN, ModifierFlag::SHIFT_L, KeyCode::V, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::JIS_PC_HAN_ZEN, ModifierFlag::SHIFT_R, KeyCode::V, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::JIS_PC_HAN_ZEN, ModifierFlag::NONE,    KeyCode::O, KeyCode::VK_NONE</autogen>
+											<!-- これのため、commonより前の必要がある。 -->
+											<!-- ModifierFlag::NONE指定 ... Command+C 等をスキップするため。 -->
+  <!-- W to る そ ぞ -->
+	<autogen>--KeyToKey-- KeyCode::W, ModifierFlag::SHIFT_L, KeyCode::C, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::W, ModifierFlag::SHIFT_R, KeyCode::C, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::W, ModifierFlag::NONE,    KeyCode::DOT, KeyCode::VK_NONE</autogen>
+  <!-- E to こ ・(中点) ご -->
+	<autogen>--KeyToKey-- KeyCode::E, ModifierFlag::SHIFT_L, KeyCode::SLASH, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::E, ModifierFlag::SHIFT_R, KeyCode::B, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::E, ModifierFlag::NONE,    KeyCode::B, KeyCode::VK_NONE</autogen>
+  <!-- R to は ゃ ば -->
+	<autogen>--KeyToKey-- KeyCode::R, ModifierFlag::SHIFT_L, KeyCode::KEY_7, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::R, ModifierFlag::SHIFT_R, KeyCode::F, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::R, ModifierFlag::NONE,    KeyCode::F, KeyCode::VK_NONE</autogen>
+  <!-- T to ょ ほ ぼ -->
+	<autogen>--KeyToKey-- KeyCode::T, ModifierFlag::SHIFT_L, KeyCode::MINUS, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::T, ModifierFlag::SHIFT_R, KeyCode::MINUS, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::T, ModifierFlag::NONE,    KeyCode::KEY_9, VK_SHIFT, KeyCode::VK_NONE</autogen>
+
+<!-- 上段R 	091127,1211 -->
+<!-- Y to き ぎ え -->
+	<autogen>--KeyToKey-- KeyCode::Y, ModifierFlag::SHIFT_L, KeyCode::G, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::Y, ModifierFlag::SHIFT_R, KeyCode::KEY_5, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::Y, ModifierFlag::NONE,    KeyCode::G, KeyCode::VK_NONE</autogen>
+  <!-- U to の げ け -->
+	<autogen>--KeyToKey-- KeyCode::U, ModifierFlag::SHIFT_L, KeyCode::JIS_COLON, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::U, ModifierFlag::SHIFT_R, KeyCode::JIS_COLON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::U, ModifierFlag::NONE,    KeyCode::K, KeyCode::VK_NONE</autogen>
+  <!-- I to く ぐ め -->
+	<autogen>--KeyToKey-- KeyCode::I, ModifierFlag::SHIFT_L, KeyCode::H, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::I, ModifierFlag::SHIFT_R, KeyCode::SLASH, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::I, ModifierFlag::NONE,    KeyCode::H, KeyCode::VK_NONE</autogen>
+	<!-- O to あ None む -->
+	<autogen>--KeyToKey-- KeyCode::O, ModifierFlag::SHIFT_L, KeyCode::VK_NONE, KeyCode::VK_NONE</autogen>
+			<!-- 09.12.12 6.2.27では、KeyCode::VK_NONEに副作用あり。「あ,None,む」の順に入力テストをすると、「む」を打った瞬間にAだけが確定してしまう。 -->
+	<autogen>--KeyToKey-- KeyCode::O, ModifierFlag::SHIFT_R, KeyCode::BACKSLASH, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::O, ModifierFlag::NONE,    KeyCode::KEY_3, KeyCode::VK_NONE</autogen>
+  <!-- P -->
+  <!-- @ to れ ゐ ろ(CtrlR to 94 by PCKeybordHack)   -->
+
+<block><!-- @+ShiftL to ヰ -->
+<!-- PS/2J(keylayoutファイル)のキーパッド(テンキー）を利用したカタカナは、別個にリマップが必要。全てシフトケースに設定してある。 -->
+  <inputmodedetail_only>JAPANESE_KATAKANA</inputmodedetail_only>
+<!-- 10.1.18 ことえり、あるいは、ATOK2009のバグに合わせて、VK_JIS_TEMPORARY_ROMANを指定すると、キーダウン時はこの中に入って来る。 -->
+<!-- リピートでなければ、処理が速いため、問題無く元のモードに戻る(と言うより変わる前に戻しているからか?)。 -->
+<!-- ただし、リピートしている間に英数モードに変わると、ここに入らずに(カタカナモードではないため）、キーアップしてもモードが戻らない。 -->
+<!-- モードが戻らないだけでなく、シフトケースの場合は、シフトキーだけを押し続けると、リピートが止まらないという、おまけまで付く。これに対処するのはblockタグでも無理。 -->
+<!-- やはり、バグがあるのが悪いので、正常に動作する「かわせみ」を使用する前提で、モード変更はしないこととする。 -->
+<!-- 結局、キーパッド(テンキー)に割り当てても絶対に問題が起きないのは(VK_JIS_TEMPORARY_xxxを指定した場合にも)、かな/英数共通で使用するキー、つまり、inputmodedetail_onlyタグ指定が無い場合ということだ。 -->
+<!-- 10.1.31 blockのネストでまとめる。 -->
+	<autogen>--KeyToKey-- KeyCode::JIS_ATMARK, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_0,VK_SHIFT, KeyCode::VK_NONE</autogen>
+
+</block>
+<block><!-- @+ShiftL to ゐ -->
+    <inputmodedetail_only>JAPANESE, JAPANESE_HIRAGANA</inputmodedetail_only>
+	<autogen>--KeyToKey-- KeyCode::JIS_ATMARK, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_0, KeyCode::VK_NONE</autogen>
+			<!-- 09.12.16 テンキーに設定したカタカナは、カタカナモードでNGなので、カタカナモードの場合はこの前段で設定する。 -->
+			<!-- 10.1.22 正しい「かわせみ」に合わせて、ROMANへのモード一時変更はしない。 -->
+</block>
+	<autogen>--KeyToKey-- KeyCode::JIS_ATMARK, ModifierFlag::SHIFT_R, KeyCode::JIS_UNDERSCORE, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::JIS_ATMARK, ModifierFlag::NONE,    KeyCode::SEMICOLON, KeyCode::VK_NONE</autogen>
+
+<!-- ================================================= -->
+<!-- 中段L 091128,1201,1211 -->
+  <!-- A to た ぬ だ -->
+	<autogen>--KeyToKey-- KeyCode::A, ModifierFlag::SHIFT_L, KeyCode::KEY_1, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::A, ModifierFlag::SHIFT_R, KeyCode::Q, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::A, ModifierFlag::NONE,    KeyCode::Q, KeyCode::VK_NONE</autogen>
+  <!-- S to と ね ど -->
+	<autogen>--KeyToKey-- KeyCode::S, ModifierFlag::SHIFT_L, KeyCode::COMMA, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::S, ModifierFlag::SHIFT_R, KeyCode::S, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::S, ModifierFlag::NONE,    KeyCode::S, KeyCode::VK_NONE</autogen>
+  <!-- D to か ゅ が -->
+	<autogen>--KeyToKey-- KeyCode::D, ModifierFlag::SHIFT_L, KeyCode::KEY_8, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::D, ModifierFlag::SHIFT_R, KeyCode::T, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::D, ModifierFlag::NONE,    KeyCode::T, KeyCode::VK_NONE</autogen>
+  <!-- F to て よ で -->
+	<autogen>--KeyToKey-- KeyCode::F, ModifierFlag::SHIFT_L, KeyCode::KEY_9, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::F, ModifierFlag::SHIFT_R, KeyCode::W, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::F, ModifierFlag::NONE,    KeyCode::W, KeyCode::VK_NONE</autogen>
+  <!-- G to も ふ ぶ -->
+	<autogen>--KeyToKey-- KeyCode::G, ModifierFlag::SHIFT_L, KeyCode::KEY_2, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::G, ModifierFlag::SHIFT_R, KeyCode::KEY_2, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::G, ModifierFlag::NONE,    KeyCode::M, KeyCode::VK_NONE</autogen>
+
+<!-- 中段R 091201,1211 -->
+  <!-- H to を ゛(濁点) お -->
+	<autogen>--KeyToKey-- KeyCode::H, ModifierFlag::SHIFT_L, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::H, ModifierFlag::SHIFT_R, KeyCode::KEY_6, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::H, ModifierFlag::NONE,    KeyCode::KEY_0, VK_SHIFT, KeyCode::VK_NONE</autogen>
+  <!-- J to い ぢ ち -->
+	<autogen>--KeyToKey-- KeyCode::J, ModifierFlag::SHIFT_L, KeyCode::A, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::J, ModifierFlag::SHIFT_R, KeyCode::A, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::J, ModifierFlag::NONE,    KeyCode::E, KeyCode::VK_NONE</autogen>
+						<!-- 10.2.16 test: 5段のKeyToKeyを実行しない場合の新方式の挙動を調べるため一時的に削除 -->
+						<!-- 10.2.16 test: 5段のKeyToKeyを実行しない場合の新方式の挙動を調べるため一時的に削除し、戻した。テストOK -->
+						<!-- 10.2.16 test: 新方式の挙動を調べるためVK_NONEを指定して、5段のKeyToKeyに入るようにするテスト。 -->
+						<!-- 10.2.16 test: , KeyCode::VK_NONEを指定しないテスト。やはり連打で誤変換されるので駄目。 -->
+
+
+  <!-- K to う ヴ ー(長音記号) -->
+	<autogen>--KeyToKey-- KeyCode::K, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_KATAKANA, KeyCode::KEY_4, KeyCode::JIS_DAKUON, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::K, ModifierFlag::SHIFT_R, KeyCode::JIS_YEN, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::K, ModifierFlag::NONE   , KeyCode::KEY_4,   KeyCode::VK_NONE</autogen>
+					<!-- 10.2.6 test: 5段のKeyToKeyを実行させる為にVK_NONEを追加。 -->
+					<!-- 10.2.8 testNG: VK_JIS_TEMPORARY_HIRAGANAを必須で指定し、VK_JIS_TEMPORARY_RESTOREは指定無し。結局ひらがなモードに戻ってないと、ひらがなモードのここには入らないので根本的に駄目。単純でいいと思ったんだけどね。 -->
+					<!-- 10.2.12 モード変更が完璧に仕上がったので、VK_JIS_TEMPORARY_HIRAGANAを削除。ヴの方もVK_JIS_TEMPORARY_RESTOREを外していたのを忘れていたので戻した。2.16 削除し忘れていた。5段のKeyToKeyを必ず通すテストの為の, KeyCode::VK_NONEも削除し忘れていた。 -->
+					<!-- 10.2.12 新方式のテストでVK_JIS_TEMPORARY_RESTOREを最初に指定する。動作完璧。テストOK。 -->
+					<!-- 10.2.27 test用のKeyCode::VK_JIS_TEMPORARY_RESTOREを外す。 -->
+					<!-- 10.2.28 ここだけVK_JIS_TEMPORARY_RESTOREを正式採用。VK_NONEを最後に指定するのが正式だが、どっちでも動作するという確認を含めて。 -->
+					<!-- 10.3.6 VK_JIS_TEMPORARY_RESTOREを削除。ついつい打ってしまうのでデバッグで使いにくいので。 -->
+					<!-- 2011.02.04(金) VK_JIS_TEMPORARY_RESTOREを復活。 -->
+  <!-- L to し じ み -->
+	<autogen>--KeyToKey-- KeyCode::L, ModifierFlag::SHIFT_L, KeyCode::D, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::L, ModifierFlag::SHIFT_R, KeyCode::N, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::L, ModifierFlag::NONE,    KeyCode::D, KeyCode::VK_NONE</autogen>
+
+  <!-- ; to ん ゑ や -->
+<block><!-- ;+ShiftL to ヱ -->
+  <inputmodedetail_only>JAPANESE_KATAKANA</inputmodedetail_only>
+	<autogen>--KeyToKey-- KeyCode::SEMICOLON, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_1,VK_SHIFT, KeyCode::VK_NONE</autogen>
+</block>
+<block><!-- ;+ShiftL to ゑ -->
+    <inputmodedetail_only>JAPANESE, JAPANESE_HIRAGANA</inputmodedetail_only>
+	<autogen>--KeyToKey-- KeyCode::SEMICOLON, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_1, KeyCode::VK_NONE</autogen>
+			<!-- 09.12.16 テンキーに設定したカタカナは、カタカナモードでNGなので、カタカナモードの場合はこの前段で設定する。 -->
+			<!-- 10.1.22 正しい「かわせみ」に合わせて、ROMANへのモード一時変更はしない。 -->
+			<!-- 10.1.31 blockのネストでまとめる。 -->
+</block>
+	<autogen>--KeyToKey-- KeyCode::SEMICOLON, ModifierFlag::SHIFT_R, KeyCode::KEY_7, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::SEMICOLON, ModifierFlag::NONE,    KeyCode::Y, KeyCode::VK_NONE</autogen>
+
+<!-- ================================================= -->
+<!-- 下段L 1201,1211 -->
+  <!-- Z to ま ぇ ヵ -->
+	<autogen>--KeyToKey-- KeyCode::Z, ModifierFlag::SHIFT_L, KeyCode::KEY_5, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::Z, ModifierFlag::SHIFT_R, KeyCode::KEYPAD_4, KeyCode::VK_NONE</autogen>
+	<!-- 10.1.22 正しい「かわせみ」に合わせて、ROMANへのモード一時変更はしない。 -->
+	<autogen>--KeyToKey-- KeyCode::Z, ModifierFlag::NONE, KeyCode::J, KeyCode::VK_NONE</autogen>
+  <!-- X to り ぉ ヶ -->
+	<autogen>--KeyToKey-- KeyCode::X, ModifierFlag::SHIFT_L, KeyCode::KEY_6, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::X, ModifierFlag::SHIFT_R, KeyCode::KEYPAD_4,VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<!-- 10.1.22 正しい「かわせみ」に合わせて、ROMANへのモード一時変更はしない。 -->
+	<autogen>--KeyToKey-- KeyCode::X, ModifierFlag::NONE, KeyCode::L, KeyCode::VK_NONE</autogen>
+
+
+	<!-- 2011.01.12(水)test 左中段とJKLキーとの同時押下で従来の左下段をシミュレートする。 -->
+	<autogen>--SimultaneousKeyPresses-- KeyCode::S, KeyCode::L, KeyCode::KEY_6, VK_SHIFT, KeyCode::VK_NONE</autogen><!-- 2011.01.12(水)test -->
+	<autogen>--SimultaneousKeyPresses-- KeyCode::S, KeyCode::K, KeyCode::KEYPAD_4,VK_SHIFT, KeyCode::VK_NONE</autogen><!-- 2011.01.12(水)test -->
+	<autogen>--SimultaneousKeyPresses-- KeyCode::S, KeyCode::J, KeyCode::L, KeyCode::VK_NONE</autogen><!-- 2011.01.12(水)test -->
+
+
+
+
+
+  <!-- C to に せ ぜ -->
+	<autogen>--KeyToKey-- KeyCode::C, ModifierFlag::SHIFT_L, KeyCode::P, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::C, ModifierFlag::SHIFT_R, KeyCode::P, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::C, ModifierFlag::NONE, KeyCode::I, KeyCode::VK_NONE</autogen>
+  <!-- V to さ ゆ ざ -->
+	<autogen>--KeyToKey-- KeyCode::V, ModifierFlag::SHIFT_L, KeyCode::KEY_8, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::V, ModifierFlag::SHIFT_R, KeyCode::X, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::V, ModifierFlag::NONE, KeyCode::X, KeyCode::VK_NONE</autogen>
+  <!-- B to な へ べ -->
+	<autogen>--KeyToKey-- KeyCode::B, ModifierFlag::SHIFT_L, KeyCode::JIS_HAT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::B, ModifierFlag::SHIFT_R, KeyCode::JIS_HAT, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::B, ModifierFlag::NONE, KeyCode::U, KeyCode::VK_NONE</autogen>
+
+<!-- 下段R 091201,1211 -->
+  <!-- N to す ず わ -->
+	<autogen>--KeyToKey-- KeyCode::N, ModifierFlag::SHIFT_L, KeyCode::R, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::N, ModifierFlag::SHIFT_R, KeyCode::KEY_0, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::N, ModifierFlag::NONE,    KeyCode::R, KeyCode::VK_NONE</autogen>
+  <!-- M to つ づ ぃ -->
+	<autogen>--KeyToKey-- KeyCode::M, ModifierFlag::SHIFT_L, KeyCode::Z, KeyCode::JIS_DAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::M, ModifierFlag::SHIFT_R, KeyCode::E, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::M, ModifierFlag::NONE,    KeyCode::Z, KeyCode::VK_NONE</autogen>
+  <!-- , to 、(読点),(コンマ) ぁ -->
+	<autogen>--KeyToKey-- KeyCode::COMMA, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::COMMA, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::COMMA, ModifierFlag::SHIFT_R, KeyCode::KEY_3, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::COMMA, ModifierFlag::NONE,    KeyCode::COMMA, VK_SHIFT, KeyCode::VK_NONE</autogen>
+  <!-- .(Dot) to 。(句点) .(ドット) ゜(半濁音記号） -->
+	<autogen>--KeyToKey-- KeyCode::DOT, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::DOT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::DOT, ModifierFlag::SHIFT_R, KeyCode::JIS_HANDAKUON, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::DOT, ModifierFlag::NONE,    KeyCode::DOT, VK_SHIFT, KeyCode::VK_NONE</autogen>
+
+  <!-- Slash to っ ゎ ぅ -->
+<block><!-- /+ShiftL to ヮ -->
+			<!-- 10.1.31 blockのネストでまとめる。 -->
+  <inputmodedetail_only>JAPANESE_KATAKANA</inputmodedetail_only>
+	<autogen>--KeyToKey-- KeyCode::SLASH, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_2,VK_SHIFT, KeyCode::VK_NONE</autogen>
+</block>
+<block><!-- /+ShiftL to ゎ -->
+    <inputmodedetail_only>JAPANESE, JAPANESE_HIRAGANA</inputmodedetail_only>
+	<autogen>--KeyToKey-- KeyCode::SLASH, ModifierFlag::SHIFT_L, KeyCode::KEYPAD_2, KeyCode::VK_NONE</autogen>
+	<!-- 10.1.22 正しい「かわせみ」に合わせて、ROMANへのモード一時変更はしない。 -->
+</block><!-- /+ShiftL to ぅ、/ to っ -->
+	<autogen>--KeyToKey-- KeyCode::SLASH, ModifierFlag::SHIFT_R, KeyCode::KEY_4, VK_SHIFT, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::SLASH, ModifierFlag::NONE,    KeyCode::Z,     VK_SHIFT, KeyCode::VK_NONE</autogen>
+
+</block>
+				          		<!-- 09.12.28 -->
+
+				        </item>
+
+				        <item>
+				          <name>(TRONモード) Dvorak配列</name><!-- Haci 09.12.2 koko800 -->
+				          <appendix>(Function,数字,記号など)</appendix>
+				          <identifier>remap.microTRONKB_Dvorak</identifier>
+				          <device_only>DeviceVendor::UC_TECHNOLOGY,DeviceProduct::MICRO_TRONKB</device_only><!-- 2011.01.11(火) ver7.0.33 OK -->
+<!-- UTF-8 -->
+<!-- μTRONキーボード用のμTRON配列・Dvorak配列共通のリマップ -->
+<!-- 09.12.28 6.2.58 or later Haci -->
+<!-- 09.12.30 6.2.60から日本語をコメントで書けるようになった。 -->
+<!-- 10.2.10 inputmodedetail_onlyを追加(全てを指定）。これは、連打対策。 -->
+<!-- 10.2.13 Tab→全角スペースで、Command+Option+Spaceでモード変更できなくなってしまうので、ModifierFlag::NONEを追加。 -->
+<!-- 10.2.13 ShiftR+Space → Command+Space、ShiftL+Space → Command+Option+Space を追加。これでかなキー、英数キーを押さなくて良くなって完璧の完璧。-->
+<!-- 10.2.16 連打対策の新方式のため、KeyCode::VK_JIS_TEMPORARY_RESTOREを全て削除。 -->
+<!-- 10.3.7 連打対策の新方式の完成に伴ってTAB設定を変更。 -->
+<!-- 11.1.5 JIS_BS,JIS_DELをPC_BS,PC_DELに変更。 -->
+<!-- 11.1.6 inputmodedetailの変数名の変更に対応。従来の長い名前が短くなった｡ -->
+<!-- 11.1.8 JIS_AT,JIS_CARET  JIS_ATMARK,JIS_HAT -->
+<!-- 2011.02.04(金) VK_JIS_TEMPORARY_RESTOREを復活。 -->
+<block>
+    <inputmodedetail_only>ROMAN, JAPANESE, JAPANESE_HIRAGANA,JAPANESE_KATAKANA</inputmodedetail_only>
+
+<!-- 最上段L(Function) -->
+  <!-- F1(Fn+1)-F5(Fn+5) そのまま -->
+  <!-- F6 to F11 -->
+	<autogen>--KeyToKey-- KeyCode::F6,  KeyCode::F11</autogen>
+
+<!-- 最上段R(Function) -->
+	<autogen>--KeyToKey-- KeyCode::F7,  KeyCode::F12</autogen>	<!-- F7  to F12 -->
+	<autogen>--KeyToKey-- KeyCode::F8,  KeyCode::F6</autogen>	<!-- F8  to F6 -->
+	<autogen>--KeyToKey-- KeyCode::F9,  KeyCode::F7</autogen>	<!-- F9  to F7 -->
+	<autogen>--KeyToKey-- KeyCode::F10, KeyCode::F8</autogen>	<!-- F10 to F8 -->
+	<autogen>--KeyToKey-- KeyCode::F11, KeyCode::F9</autogen>	<!-- F11 to F9 -->
+	<autogen>--KeyToKey-- KeyCode::F12, KeyCode::F10</autogen>	<!-- F12 to F10 -->
+
+<!-- ================================================= -->
+<!-- 最上段L -->
+  <!-- @ $ ¥ -->
+	<autogen>--KeyToKey-- KeyCode::ESCAPE, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_4,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::ESCAPE, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::JIS_YEN, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::ESCAPE, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::JIS_ATMARK, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- 1 to 1 ` ~ -->
+	<autogen>--KeyToKey-- KeyCode::KEY_1, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::BACKQUOTE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_1, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::JIS_HAT,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_1, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_1, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- 2 to 2 single-quotationL single-quotationR -->
+	<autogen>--KeyToKey-- KeyCode::KEY_2, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_5, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_2, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_5,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_2, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_2, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- 3 to 3 double-quotationL double-quotationR 10.2.15 , KeyCode::VK_JIS_TEMPORARY_RESTORE無し方式のテスト -->
+	<autogen>--KeyToKey-- KeyCode::KEY_3, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_6, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_3, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_6,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_3, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_3, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+
+  <!-- 4 to 4 「 」(かぎ括弧) -->
+  <!-- 10.2.24 英字モードのときに、これでひらがなモードに変わると、英語キーがひらがなになってしまうという新たなバグは、英字モードの時の記述でも5段のKeyToKeyを必ず通るようにするためのKeyCode::VK_NONEを追加していなかったから。 -->
+	<autogen>--KeyToKey-- KeyCode::KEY_4, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::BRACKET_RIGHT,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_4, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::BACKSLASH,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_4, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_4, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- 5 to 5 『 』(2重かぎ括弧) -->
+  <!-- かわせみv1.0.1(42)がkeylayoutファイルをかなモードで使用するのは正しい。ことえりは英数モードのみ。仕方ないので、ことえりに合わせる。 -->
+	<autogen>--KeyToKey-- KeyCode::KEY_5, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN,  KeyCode::KEYPAD_3, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_5, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_3,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_5, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_5, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- 6 to optionL -->
+	<autogen>--KeyToKey-- KeyCode::KEY_6, KeyCode::OPTION_L, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+
+<!-- 最上段R -->
+  <!-- 7+Shift to Command -(ZoomOut ) 091207 -->
+  <!-- 7 	   to Command +(ZoomIn  ) -->
+  <!-- Command+ShiftをOption+V(かわせみ用)にしたためZoomInができなくなったため専用キーにした。意外に使いやすい。 -->
+	<autogen>--KeyToKey-- KeyCode::KEY_7, VK_SHIFT, KeyCode::MINUS, VK_COMMAND</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_7, KeyCode::SEMICOLON, VK_COMMAND|VK_SHIFT</autogen>
+  <!-- 8 to 6 小なり記号 大なり記号 -->
+	<autogen>--KeyToKey-- KeyCode::KEY_8, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::COMMA,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_8, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::DOT,  VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_8, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_6, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- 9 to 7 ( )-->
+	<autogen>--KeyToKey-- KeyCode::KEY_9, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_8,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_9, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_9,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_9, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_7, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- 0 to 8  { }  10.2.15 , KeyCode::VK_JIS_TEMPORARY_RESTORE無し方式のテスト -->
+	<autogen>--KeyToKey-- KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::BRACKET_RIGHT,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_0, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::BACKSLASH,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEY_0, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_8, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+
+  <!-- Minus to 9 [ ] -->
+	<autogen>--KeyToKey-- KeyCode::MINUS, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::BRACKET_RIGHT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::MINUS, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::BACKSLASH, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::MINUS, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_9, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- ^(caret) to 0 \ | -->
+  <!-- PS/2Jのバグを修正しておく必要あり。key code="94": _ → \ -->
+	<autogen>--KeyToKey-- KeyCode::JIS_HAT, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::JIS_UNDERSCORE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::JIS_HAT, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::JIS_YEN,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::JIS_HAT, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_0, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+
+  <!-- Yen to Esc -->
+	<autogen>--KeyToKey-- KeyCode::JIS_YEN, KeyCode::ESCAPE</autogen>
+
+<!-- ================================================= -->
+<!-- 上段L -->
+  <!-- NumLk to CLEAR(by KeyboardHack) to ! '(apostrophe) "(straight-quotation-mark) -->
+	<autogen>--KeyToKey-- KeyCode::KEYPAD_CLEAR, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_7,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEYPAD_CLEAR, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_2,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::KEYPAD_CLEAR, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_1,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- Q to OptionL -->
+	<autogen>--KeyToKey-- KeyCode::Q, KeyCode::OPTION_L</autogen>
+
+<!-- 上段R -->
+  <!-- HELP(Ins)+Shift to Redo (09.12.9)-->
+  <!-- HELP(Ins)       to Undo -->
+	<autogen>--KeyToKey-- KeyCode::HELP, VK_SHIFT,   KeyCode::Z, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+	<autogen>--KeyToKey-- KeyCode::HELP, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
+  <!-- P to CommandR -->
+	<autogen>--KeyToKey-- KeyCode::P, 	 KeyCode::COMMAND_R</autogen>
+  <!-- [ to / * × -->
+	<autogen>--KeyToKey-- KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::JIS_COLON,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_MULTIPLY,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::BRACKET_RIGHT, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SLASH, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+
+<!-- ================================================= -->
+<!-- 中段L -->
+  <!-- Menu to ? none none -->
+	<autogen>--KeyToKey-- KeyCode::PC_APPLICATION, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::PC_APPLICATION, ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::PC_APPLICATION, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SLASH,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- AltL to CommandL -->
+	<autogen>--KeyToKey-- KeyCode::OPTION_L, KeyCode::COMMAND_L</autogen>
+  <!-- Tab to 全角space :09.12.23 ひらがなモードにすれば英数モードのときでも全角スペースになるうと気づいた。ただし、かわせみでは、「入力モードに合わせる」に設定しておくという前提で。ことえりにはそういう指定はない。-->
+    <!-- 10.2.13 Command+Option+Spaceでモード変更できなくなってしまうので、ModifierFlag::NONEを追加。 -->
+    <!-- 10.2.13 ShiftR+Space → Command+Space、ShiftL+Space → Command+Option+Space を追加-->
+	<autogen>--KeyToKey-- KeyCode::TAB, ModifierFlag::SHIFT_L, KeyCode::SPACE, VK_COMMAND|VK_OPTION</autogen>
+	<autogen>--KeyToKey-- KeyCode::TAB, ModifierFlag::SHIFT_R, KeyCode::SPACE, VK_COMMAND</autogen>
+	<autogen>--KeyToKey-- KeyCode::TAB, ModifierFlag::NONE, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::SPACE, ModifierFlag::NONE, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+      <!-- 10.3.7 ModifierFlag::NONEを追加-->
+	<autogen>--KeyToKey-- KeyCode::TAB, KeyCode::SPACE, ModifierFlag::NONE</autogen>
+      <!-- 10.3.7 半角space、これはCommand+Spaceでのモード変更を可能にするため -->
+
+<!-- 中段R -->
+  <!-- Return(Enter key) to Enter -->
+	<autogen>--KeyToKey-- KeyCode::RETURN, KeyCode::ENTER</autogen>
+  <!-- : to - + ÷ (PS/2JのKEYPAD_SLASHに÷を設定しておく) -->
+	<autogen>--KeyToKey-- KeyCode::QUOTE, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::SEMICOLON,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::QUOTE, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEYPAD_SLASH,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::QUOTE, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::MINUS, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+  <!-- ] to = # % -->
+	<autogen>--KeyToKey-- KeyCode::BACKSLASH, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_3,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::BACKSLASH, ModifierFlag::SHIFT_R, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::KEY_5,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::BACKSLASH, KeyCode::VK_JIS_TEMPORARY_ROMAN, KeyCode::MINUS,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+
+<!-- ================================================= -->
+<!-- 下段L -->
+  <!-- Space to Tab -->
+	<autogen>--KeyToKey-- KeyCode::SPACE, KeyCode::TAB</autogen>
+
+<!-- 下段R -->
+  <!-- \ to OPTION_R -->
+	<autogen>--KeyToKey-- KeyCode::JIS_UNDERSCORE, KeyCode::OPTION_R</autogen>
+
+<!-- ================================================= -->
+<!-- 最下段L -->
+  <!-- PrtSc(Fn+Home) to Del -->
+	<autogen>--KeyToKey-- KeyCode::F13, 		KeyCode::PC_DEL</autogen>
+  <!-- 無変換(NFER) to Ctrl_R(by KeyboardHack) to Return -->
+	<autogen>--KeyToKey-- KeyCode::CONTROL_R, KeyCode::RETURN</autogen>
+
+<!-- 最下段R -->
+  <!-- 変換(XFER) to command_R(by KeyboardHack) -->
+  <!-- PC_BS+shift to PC_DEL -->
+	<autogen>--KeyToKey-- KeyCode::PC_BS,VK_SHIFT, KeyCode::PC_DEL</autogen>
+</block>				          		<!-- 09.12.28 -->
+<!-- UTF-8 -->
+<!-- 09.12.28 6.2.58 or later Haci -->
+<!-- microTRON_KBをベースにしてある。例えば、HHKBなら異なるキーだけをこれより前に記述すればいい。-->
+<!-- 09.12.30 6.2.60から日本語をコメントで書けるようになった。 -->
+<!-- 10.2.16 連打対策の新方式のため、KeyCode::VK_JIS_TEMPORARY_RESTOREを全て(3ヶ所)削除。 -->
+  <!-- 10.2.24 英字モードのときに、一時的にひらがなモードに変えるキーを打つと、通常の英語文字キーがひらがなになってしまうという新たなバグは、英字モードの時の記述でも5段のKeyToKeyを必ず通るようにするためのKeyCode::VK_NONEを追加していなかったから。 -->
+<!-- 11.1.5 JIS_HAN_ZENをJIS_PC_HAN_ZENに変更。 -->
+<!-- 11.1.8 JIS_AT,JIS_CARET  JIS_ATMARK,JIS_HAT -->
+<!-- 2011.02.04(金)pm12:48 KeyCode::VK_JIS_TEMPORARY_RESTOREを全て(3ヶ所)を削除していたが、1つを復活。2つはモード変更自体を削除。 -->
+
+<!-- 上段L -->
+  <!-- 半角/全角 to ; ^ : -->
+	<autogen>--KeyToKey-- KeyCode::JIS_PC_HAN_ZEN, ModifierFlag::SHIFT_L, KeyCode::JIS_HAT</autogen>
+	<autogen>--KeyToKey-- KeyCode::JIS_PC_HAN_ZEN, ModifierFlag::SHIFT_R, KeyCode::JIS_COLON</autogen>
+	<autogen>--KeyToKey-- KeyCode::JIS_PC_HAN_ZEN, KeyCode::SEMICOLON</autogen>
+  <!-- Q : commonで設定 -->
+  <!-- W to , none & -->
+	<autogen>--KeyToKey-- KeyCode::W, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
+	<autogen>--KeyToKey-- KeyCode::W, ModifierFlag::SHIFT_R, KeyCode::KEY_6,VK_SHIFT</autogen>
+	<autogen>--KeyToKey-- KeyCode::W, KeyCode::COMMA</autogen>
+  <!-- E to .(Dot) ・(中点) _ -->
+	<autogen>--KeyToKey-- KeyCode::E, ModifierFlag::SHIFT_L, KeyCode::VK_JIS_TEMPORARY_HIRAGANA, KeyCode::SLASH,VK_SHIFT, KeyCode::VK_JIS_TEMPORARY_RESTORE</autogen>
+	<autogen>--KeyToKey-- KeyCode::E, ModifierFlag::SHIFT_R, KeyCode::JIS_UNDERSCORE,VK_SHIFT</autogen>
+	<autogen>--KeyToKey-- KeyCode::E, KeyCode::DOT</autogen>
+  <!-- R to P -->
+	<autogen>--KeyToKey-- KeyCode::R, KeyCode::P</autogen>
+  <!-- T to Y -->
+	<autogen>--KeyToKey-- KeyCode::T, KeyCode::Y</autogen>
+
+<!-- 上段R -->
+  <!-- Y to F -->
+	<autogen>--KeyToKey-- KeyCode::Y, 	 KeyCode::F</autogen>
+  <!-- U to G -->
+	<autogen>--KeyToKey-- KeyCode::U, 	 KeyCode::G</autogen>
+  <!-- I to C -->
+	<autogen>--KeyToKey-- KeyCode::I, 	 KeyCode::C</autogen>
+  <!-- O to R -->
+	<autogen>--KeyToKey-- KeyCode::O, 	 KeyCode::R</autogen>
+  <!-- P :commonで設定 -->
+  <!-- @ to L -->
+	<autogen>--KeyToKey-- KeyCode::JIS_ATMARK, KeyCode::L</autogen>
+
+<!-- ================================================= -->
+<!-- 中段L -->
+  <!-- A そのまま -->
+  <!-- S to O -->
+	<autogen>--KeyToKey-- KeyCode::S, KeyCode::O</autogen>
+  <!-- D to E -->
+	<autogen>--KeyToKey-- KeyCode::D, KeyCode::E</autogen>
+  <!-- F to U -->
+	<autogen>--KeyToKey-- KeyCode::F, KeyCode::U</autogen>
+  <!-- G to I -->
+	<autogen>--KeyToKey-- KeyCode::G, KeyCode::I</autogen>
+
+<!-- 中段R -->
+  <!-- H to D -->
+	<autogen>--KeyToKey-- KeyCode::H, 		KeyCode::D</autogen>
+  <!-- J to H -->
+	<autogen>--KeyToKey-- KeyCode::J, 		KeyCode::H</autogen>
+  <!-- K to T -->
+	<autogen>--KeyToKey-- KeyCode::K, 		KeyCode::T, KeyCode::VK_NONE</autogen>
+											<!-- 10.2.8 test: 5段のKeyToKeyを実行させる為にVK_NONEを追加。t「う -->
+  <!-- L to N -->
+	<autogen>--KeyToKey-- KeyCode::L, 		KeyCode::N</autogen>
+  <!-- ; to S -->
+	<autogen>--KeyToKey-- KeyCode::SEMICOLON, KeyCode::S</autogen>
+
+<!-- ================================================= -->
+<!-- 下段L -->
+  <!-- Z to prime degree double-prime -->
+  <!-- 2011.02.04(金)pm12:40 ここのモード変更(KeyCode::VK_JIS_TEMPORARY_ROMAN)は英字モードで呼ばれるので不要だったので、なぜ入れていたのか不明。よって削除。 -->
+	<autogen>--KeyToKey-- KeyCode::Z, ModifierFlag::SHIFT_L,  KeyCode::KEYPAD_8</autogen>
+	<autogen>--KeyToKey-- KeyCode::Z, ModifierFlag::SHIFT_R,  KeyCode::KEYPAD_7,VK_SHIFT</autogen>
+	<autogen>--KeyToKey-- KeyCode::Z, KeyCode::KEYPAD_7</autogen>
+  <!-- X to Q -->
+	<autogen>--KeyToKey-- KeyCode::X, KeyCode::Q</autogen>
+  <!-- C to J -->
+	<autogen>--KeyToKey-- KeyCode::C, KeyCode::J</autogen>
+  <!-- V to K -->
+	<autogen>--KeyToKey-- KeyCode::V, KeyCode::K</autogen>
+  <!-- B to X -->
+	<autogen>--KeyToKey-- KeyCode::B, KeyCode::X</autogen>
+
+<!-- 下段R -->
+  <!-- N to B -->
+	<autogen>--KeyToKey-- KeyCode::N, 	KeyCode::B</autogen>
+  <!-- M そのまま -->
+  <!-- COMMA to W -->
+	<autogen>--KeyToKey-- KeyCode::COMMA ,KeyCode::W</autogen>
+  <!-- DOT to V -->
+	<autogen>--KeyToKey-- KeyCode::DOT, 	KeyCode::V</autogen>
+  <!-- / to Z -->
+	<autogen>--KeyToKey-- KeyCode::SLASH, KeyCode::Z</autogen>
+				          		<!-- 09.12.28 -->
+				        </item>
+
+				        <item>
+				          <name>(JISモード) JIS配列</name><!-- Haci 09.11.25 -->
+
+				          <identifier>remap.microTRONKB_jismode</identifier>
+				          <config_not>remap.microTRONKB_mTRON, remap.microTRONKB_Dvorak</config_not><!-- 09.12.3,11.1.8 -->
+				          <device_only>DeviceVendor::UC_TECHNOLOGY,DeviceProduct::MICRO_TRONKB</device_only><!-- 2011.01.11(火) ver7.0.33 OK -->
+						  <!-- CyuDan_L -->
+				          <autogen>--KeyToKey-- KeyCode::PC_APPLICATION, KeyCode::OPTION_L</autogen><!-- Menu to OptionL -->
+				        </item>
+
+              		</list>
+            	</item>
+
+
+              </list>
+            </item>
+  </list>
+</root>
